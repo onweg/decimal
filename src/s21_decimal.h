@@ -9,8 +9,8 @@ typedef struct s21_decimal{
     uint32_t bits[4];
 } s21_decimal;
 
-#define S21_DEC_SIGN_MASK       0x80000000
-#define S21_DEC_EXP_MASK        0x00FF0000
+#define S21_DEC_SIGN_MASK       0b10000000000000000000000000000000
+#define S21_DEC_EXP_MASK        0b00000000111111110000000000000000
 #define S21_DEC_EXP_SHIFT       16                  
 
 #define S21_DEC_INF             ((s21_decimal){{0, 0, 0, 0}})                               // TODO
@@ -55,6 +55,8 @@ int s21_truncate(s21_decimal value, s21_decimal *result);
 int s21_negate(s21_decimal value, s21_decimal *result);
 
 void s21_dec_print(s21_decimal value);
+void set_bit(s21_decimal value, int bit);
+void get_bit(s21_decimal value, int bit);
 
 
 
