@@ -11,11 +11,9 @@ typedef struct s21_decimal{
 
 #define S21_DEC_SIGN_MASK       0b10000000000000000000000000000000
 #define S21_DEC_EXP_MASK        0b00000000111111110000000000000000
-#define S21_DEC_EXP_SHIFT       16                  
+#define S21_DEC_EXP_SHIFT       16
+#define S21_DEC_SCALE_MAX       28      
 
-#define S21_DEC_INF             ((s21_decimal){{0, 0, 0, 0}})                               // TODO
-#define S21_DEC_NINF            0x80000000                                                  // TODO
-#define S21_DEC_NAN             0x80000000                                                  // TODO
 #define S21_DEC_MAX             ((s21_decimal){{0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0}})    // 2^96 - 1
 #define S21_DEC_MIN             ((s21_decimal){{1, 0, 0, 28 << S21_DEC_EXP_SHIFT}})         // 1 / 10^28
 
