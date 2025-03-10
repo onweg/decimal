@@ -11,6 +11,7 @@ typedef struct s21_decimal{
 } s21_decimal;
 
 #define S21_DEC_SIGN_MASK       0b10000000000000000000000000000000
+#define S21_DEC_SIGN_SHIFT      31
 #define S21_DEC_EXP_MASK        0b00000000111111110000000000000000
 #define S21_DEC_EXP_SHIFT       16
 #define S21_DEC_SCALE_MAX       28      
