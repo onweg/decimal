@@ -1,12 +1,13 @@
 #pragma once
 
+#include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <limits.h>
 
 typedef struct s21_decimal{
-    uint32_t bits[4];
+    int bits[4];
 } s21_decimal;
 
 #define S21_DEC_SIGN_MASK       0b10000000000000000000000000000000
@@ -24,8 +25,8 @@ typedef enum S21_STATUS {
     S21_STATUS_NINF =        2,
     S21_STATUS_ZERO_DEV =    3,
 
-    S21_STATUS_CONV_ERR =    1,
-    S21_STATUS_CALC_ERR =    1
+    // S21_STATUS_CONV_ERR =    1,
+    // S21_STATUS_CALC_ERR =    1
 
 } S21_STATUS;
 
@@ -52,9 +53,13 @@ int s21_round(s21_decimal value, s21_decimal *result);
 int s21_truncate(s21_decimal value, s21_decimal *result);
 int s21_negate(s21_decimal value, s21_decimal *result);
 
-void s21_dec_print(s21_decimal value);
-void set_bit(s21_decimal value, int bit);
-void get_bit(s21_decimal value, int bit);
+void print_decimal(const s21_decimal value);
+void set_bit(s21_decimal *value, int i, int bit);
+void set_sign(s21_decimal *value, int sign);
+void set_exp(s21_decimal *value, int exp);
+int get_bit(const s21_decimal value, int i);
+int get_sign(const s21_decimal value);
+int get_exp(const s21_decimal value);
 
 
 

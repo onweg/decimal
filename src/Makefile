@@ -1,8 +1,8 @@
 CC = gcc
 
-CFLAGS = -Wall -Wextra -pedantic -std=c11
+CFLAGS = -Wall -Wextra -pedantic -std=c11 #-Werror
 GCOV_FLAGS = -fprofile-arcs -ftest-coverage
-LDFLAGS = -lgcov -fprofile-arcs --coverage -pthread 
+LDFLAGS = -fprofile-arcs --coverage -pthread 
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Darwin)
