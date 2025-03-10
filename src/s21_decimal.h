@@ -15,8 +15,8 @@ typedef struct s21_decimal{
 #define S21_DEC_EXP_SHIFT       16
 #define S21_DEC_SCALE_MAX       28      
 
-#define S21_DEC_MAX             ((s21_decimal){{0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0}})    // 2^96 - 1
-#define S21_DEC_MIN             ((s21_decimal){{1, 0, 0, 28 << S21_DEC_EXP_SHIFT}})         // 1 / 10^28
+#define S21_DEC_MAX             ((s21_decimal){{0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0}})                   // 2^96 - 1
+#define S21_DEC_MIN             ((s21_decimal){{1, 0, 0, S21_DEC_SCALE_MAX << S21_DEC_EXP_SHIFT}})         // 1 / 10^28
 
 
 typedef enum S21_STATUS {
