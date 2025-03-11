@@ -63,13 +63,11 @@ int get_sign(const s21_decimal value);
 int get_exp(const s21_decimal value);
 void shift_bits_to_left(s21_decimal *value, int shift);
 void shift_bits_to_right(s21_decimal *value, int shift);
-
-
-// сдвиг всех битов влево
-// сдвиг всех битов вправо
+void scale_equalize(s21_decimal *value1, s21_decimal *value2);
+void scale_increase(s21_decimal *value, int shift);
+void scale_decrease(s21_decimal *value, int shift);
+void copy(s21_decimal *value, const s21_decimal src);
 // привод к общему знаменателю
-// увеличение степени на shift
-// уменьшение степени на shift
 // сложение битов при уже выравненных exp
 
 
