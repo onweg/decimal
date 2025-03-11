@@ -62,6 +62,7 @@ int get_bit(const s21_decimal value, int i);
 int get_sign(const s21_decimal value);
 int get_exp(const s21_decimal value);
 void shift_bits_to_left(s21_decimal *value, int shift);
+void shift_bits_to_right(s21_decimal *value, int shift);
 
 
 // сдвиг всех битов влево
@@ -69,7 +70,7 @@ void shift_bits_to_left(s21_decimal *value, int shift);
 // привод к общему знаменателю
 // увеличение степени на shift
 // уменьшение степени на shift
-// сложение битов при уже выравненых exp
+// сложение битов при уже выравненных exp
 
 
 
