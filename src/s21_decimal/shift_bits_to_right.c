@@ -11,7 +11,10 @@ void shift_bits_to_right(s21_decimal *value, int shift) {
     for (int i = 0; i < 96 - shift; i++) {
 		set_bit(value, i, get_bit(*value, i + shift));
 	}
-	set_bit(value, 95, 0);
+	for (int i = 96 - shift; i < 96; i++) {
+		set_bit(value, i, 0);
+	}
+	return;
 }
 
 
