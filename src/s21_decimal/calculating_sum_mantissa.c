@@ -7,7 +7,7 @@ int calculating_sum_mantissa(const s21_decimal value_1, const s21_decimal value_
 	int index = 0, remains = 0;
 	while (index < 96) {
 		int sum = get_bit(value_1, index) + get_bit(value_2, index) + remains;
-		set_bit(result, sum % 2, index);
+		set_bit(result, index, sum%2);
 		remains = sum / 2;
 		index++;
 	}
