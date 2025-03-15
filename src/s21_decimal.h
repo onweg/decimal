@@ -75,6 +75,7 @@ int s21_calculating_sub_mantissa(const s21_decimal value_1, const s21_decimal va
 int s21_comparing_mantissa(const s21_decimal value_1, const s21_decimal value_2);
 // приводит decimal к ноормальному виду из 123000/10^2 приведет в 1230/10^0
 void s21_normalize_decimal(s21_decimal *value);
+int s21_decimal_is_zero(const s21_decimal value);
 
 
 

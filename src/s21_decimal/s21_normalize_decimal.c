@@ -1,7 +1,7 @@
 #include "../s21_decimal.h"
 
 void s21_normalize_decimal(s21_decimal *value) {
-	while (get_exp(*value) != 0) {
+	while (s21_get_exp(*value) != 0) {
 		s21_decimal tmp = *value;
 		s21_scale_decrease(&tmp, 1);
 		s21_scale_increase(&tmp, 1);

@@ -11,7 +11,7 @@ int s21_scale_decrease(s21_decimal *value, int shift) {
             value->bits[i] = (int)(current / 10);
             remainder = current % 10;
         }
-        s21_set_exp(value, get_exp(*value) - 1);
+        s21_set_exp(value, s21_get_exp(*value) - 1);
     }
     return 0;
 }

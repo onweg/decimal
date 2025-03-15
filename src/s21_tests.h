@@ -5,24 +5,24 @@
 
 void run_testcase(Suite *testcase);
 
-Suite *suite_s21_from_int_to_decimal(void);
-Suite *suite_s21_from_decimal_to_int(void);
-Suite *suite_s21_from_float_to_decimal(void);
-Suite *suite_s21_from_decimal_to_float(void);
+Suite *s21_from_int_to_decima_test(void);
+Suite *s21_from_decimal_to_int_test(void);
+Suite *s21_from_float_to_decimal_test(void);
+Suite *s21_from_decimal_to_float_test(void);
 
-Suite *suite_s21_is_less(void);
-Suite *suite_s21_is_less_or_equal(void);
-Suite *suite_s21_is_greater(void);
-Suite *suite_s21_is_greater_or_equal(void);
-Suite *suite_s21_is_equal(void);
-Suite *suite_s21_is_not_equal(void);
+Suite *s21_is_less_test(void);
+Suite *s21_is_less_or_equal_test(void);
+Suite *s21_is_greater_test(void);
+Suite *s21_is_greater_or_equal_test(void);
+Suite *s21_is_equal_test(void);
+Suite *s21_is_not_equal_test(void);
 
-Suite *suite_s21_floor(void);
-Suite *suite_s21_round(void);
-Suite *suite_s21_truncate(void);
-Suite *suite_s21_negate(void);
+Suite *s21_floor_test(void);
+Suite *s21_round_test(void);
+Suite *s21_truncate_test(void);
+Suite *s21_negate_test(void);
 
-Suite *suite_s21_add(void);
-Suite *suite_s21_sub(void);
-Suite *suite_s21_mul(void);
-Suite *suite_s21_div(void);
+Suite *s21_add_test(void);
+Suite *s21_sub_test(void);
+Suite *s21_mul_test(void);
+Suite *s21_div_test(void);
