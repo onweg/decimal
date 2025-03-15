@@ -3,6 +3,8 @@
 // 0 - успешное завершение
 // 1 - переполнение
 
+// вычисляет только сумму мантисс или возвращает 1, если число не вместится в мантиссу
+
 int s21_calculating_sum_mantissa(const s21_decimal value_1, const s21_decimal value_2, s21_decimal *result) {
 	int index = 0, remains = 0;
 	while (index < 96) {
