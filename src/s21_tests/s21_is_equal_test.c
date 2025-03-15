@@ -4,7 +4,6 @@ START_TEST(test1) {
 	{
 		s21_decimal a = {0, 0, 0, 0b00000000000000000000000000000000};
 		s21_decimal b = {0, 0, 0, 0b00000000000000000000000000000000};
-		printf("%d\n", s21_is_equal(a, b));
 		ck_assert_int_eq(s21_is_equal(a, b), 1);
 		
 	}
