@@ -54,25 +54,27 @@ int s21_round(s21_decimal value, s21_decimal *result);
 int s21_truncate(s21_decimal value, s21_decimal *result);
 int s21_negate(s21_decimal value, s21_decimal *result);
 
-void print_decimal(const s21_decimal value);
-void set_bit(s21_decimal *value, int i, int bit);
-void set_sign(s21_decimal *value, int sign);
-void set_exp(s21_decimal *value, int exp);
-int get_bit(const s21_decimal value, int i);
-int get_sign(const s21_decimal value);
-int get_exp(const s21_decimal value);
-void shift_bits_to_left(s21_decimal *value, int shift);
-void shift_bits_to_right(s21_decimal *value, int shift);
-void scale_equalize(s21_decimal *value1, s21_decimal *value2);
-int scale_increase(s21_decimal *value, int shift);
-void scale_decrease(s21_decimal *value, int shift);
-void copy(s21_decimal *value, const s21_decimal src);
+void s21_print_decimal(const s21_decimal value);
+void s21_set_bit(s21_decimal *value, int i, int bit);
+void s21_set_sign(s21_decimal *value, int sign);
+void s21_set_exp(s21_decimal *value, int exp);
+int s21_get_bit(const s21_decimal value, int i);
+int s21_get_sign(const s21_decimal value);
+int s21_get_exp(const s21_decimal value);
+void s21_shift_bits_to_left(s21_decimal *value, int shift);
+void s21_shift_bits_to_right(s21_decimal *value, int shift);
+void s21_scale_equalize(s21_decimal *value1, s21_decimal *value2);
+int s21_scale_increase(s21_decimal *value, int shift);
+int s21_scale_decrease(s21_decimal *value, int shift);
+void s21_copy(s21_decimal *value, const s21_decimal src);
 // сложение только мантисс с обработкой на переполнение
-int calculating_sum_mantissa(const s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
+int s21_calculating_sum_mantissa(const s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
 // вычитание только мантисс с обработкой на переполнение
-int calculating_sub_mantissa(const s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
+int s21_calculating_sub_mantissa(const s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
 // сравннеие только мантисс
-int comparing_mantissa(const s21_decimal value_1, const s21_decimal value_2);
+int s21_comparing_mantissa(const s21_decimal value_1, const s21_decimal value_2);
+// приводит decimal к ноормальному виду из 123000/10^2 приведет в 1230/10^0
+void s21_normalize_decimal(s21_decimal *value);
 
 
 
