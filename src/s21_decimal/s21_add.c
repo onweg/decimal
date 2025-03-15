@@ -40,16 +40,16 @@ int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){
         } else {
             s21_copy(result, tmp_result);
         }
-    } /*else {
-        if (){
+    } else {
+        if (s21_is_greater(value_1, value_2)){
             status = calculating_sub_mantissa(value_1, value_2, &tmp_result);
         } else {
             status = calculating_sub_mantissa(value_2, value_1, &tmp_result);
         }
         s21_copy(result, tmp_result);
-    } */
+    }
     if (status == 0){
-        s21_normalize_decimal(&tmp_result);
+        s21_normalize_decimal(&result);
     }
     return status;
 }
