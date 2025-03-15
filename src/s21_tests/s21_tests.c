@@ -10,7 +10,7 @@ int main() {
                             // s21_from_decimal_to_float_test(),
                             // s21_is_less_test(),
                             // s21_is_less_or_equal_test(),
-                            // s21_is_greater_test(),
+                            s21_is_greater_test(),
                             // s21_is_greater_or_equal_test(),
                             s21_is_equal_test(),
                             // s21_is_not_equal_test(),
