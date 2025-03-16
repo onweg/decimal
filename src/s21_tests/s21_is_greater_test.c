@@ -82,12 +82,24 @@ START_TEST(test2) {
 		ck_assert_int_eq(s21_is_greater(a, b), 0);
 		ck_assert_int_eq(s21_is_greater(b, a), 1);
 	}
+	{
+		s21_decimal a = {1, 0, 0, 0b10000000000000000000000000000000};
+		s21_decimal b = {1, 0, 0, 0b00000000000000000000000000000000};
+		ck_assert_int_eq(s21_is_greater(a, b), 0);
+		ck_assert_int_eq(s21_is_greater(b, a), 1);
+	}
+	{
+		s21_decimal a = {1, 0, 0, 0b00000000000000000000000000000000};
+		s21_decimal b = {1, 0, 0, 0b00000000000000000000000000000000};
+		ck_assert_int_eq(s21_is_greater(a, b), 0);
+		ck_assert_int_eq(s21_is_greater(b, a), 0);
+	}
 } END_TEST
 
 START_TEST(test3) {
 	{
 		s21_decimal a = {1000, 0, 0, 0b00000000000000110000000000000000};
-		s21_decimal b = {1, 0, 0, 0b00000000000000000000000000000000};
+		s21_decimal b = {1, 0, 0,    0b00000000000000000000000000000000};
 		ck_assert_int_eq(s21_is_greater(a, b), 0);
 	}
 	{
