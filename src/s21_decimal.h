@@ -70,7 +70,7 @@ void s21_copy(s21_decimal *value, const s21_decimal src);
 // сложение только мантисс с обработкой на переполнение
 int s21_calculating_sum_mantissa(const s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
 // вычитание только мантисс с обработкой на переполнение
-int s21_calculating_sub_mantissa(const s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
+int s21_calculating_sub_mantissa(s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
 // сравннеие только мантисс
 int s21_comparing_mantissa(const s21_decimal value_1, const s21_decimal value_2);
 // приводит decimal к ноормальному виду из 123000/10^2 приведет в 1230/10^0
