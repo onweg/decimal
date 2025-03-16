@@ -8,7 +8,6 @@
 // 1 - некорректные данные
 
 int s21_calculating_sub_mantissa(s21_decimal value_1, const s21_decimal value_2, s21_decimal *result) {
-	s21_copy(result, value_1);
 	int i = 0;
 	while (i < 96) {
 		int bit1 = s21_get_bit(value_1, i);

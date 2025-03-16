@@ -19,7 +19,7 @@ int main() {
                             // s21_truncate_test(),
                             // s21_negate_test(),
                             s21_add_test(),
-                            // s21_sub_test(),
+                            s21_sub_test(),
                             // s21_mul_test(),
                             // s21_div_test(),
                             NULL };
