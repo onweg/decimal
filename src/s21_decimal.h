@@ -67,13 +67,8 @@ void s21_scale_equalize(s21_decimal *value1, s21_decimal *value2);
 int s21_scale_increase(s21_decimal *value, int shift);
 int s21_scale_decrease(s21_decimal *value, int shift);
 void s21_copy(s21_decimal *value, const s21_decimal src);
-// сложение только мантисс с обработкой на переполнение
 int s21_calculating_sum_mantissa(const s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
-// вычитание только мантисс с обработкой на переполнение
 int s21_calculating_sub_mantissa(s21_decimal value_1, const s21_decimal value_2, s21_decimal *result);
-// сравннеие только мантисс
-int s21_comparing_mantissa(const s21_decimal value_1, const s21_decimal value_2);
-// приводит decimal к ноормальному виду из 123000/10^2 приведет в 1230/10^0
 void s21_normalize_decimal(s21_decimal *value);
 int s21_decimal_is_zero(const s21_decimal value);
 

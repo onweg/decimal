@@ -23,33 +23,35 @@
 
 
 int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){
-
-    
     s21_normalize_decimal(&value_1);
     s21_normalize_decimal(&value_2);
     s21_scale_equalize(&value_1, &value_2);
-
     s21_decimal tmp_result = {0};
-    enum S21_STATUS status;
+    enum S21_STATUS status = 0;
     if (s21_get_sign(value_1) == s21_get_sign(value_2)) {
+        tmp_result.bits[3] = value_1.bits[3];
         status = s21_calculating_sum_mantissa(value_1, value_2, &tmp_result);
         if (status != 0) {
             if (s21_get_sign(value_1) == 1){
                 status = S21_STATUS_NINF;
             }
-        } else {
-            s21_copy(result, tmp_result);
         }
     } else {
-        if (s21_is_greater(value_1, value_2)){
-            status = calculating_sub_mantissa(value_1, value_2, &tmp_result);
+        if (
+            ((unsigned int)value_1.bits[2] > (unsigned int)value_2.bits[2]) || 
+            ((unsigned int)value_1.bits[2] == (unsigned int)value_2.bits[2]) &&  ((unsigned int)value_1.bits[1] > (unsigned int)value_2.bits[1]) ||
+            ((unsigned int)value_1.bits[2] == (unsigned int)value_2.bits[2]) &&  ((unsigned int)value_1.bits[1] == (unsigned int)value_2.bits[1]) && ((unsigned int)value_1.bits[0] > (unsigned int)value_2.bits[0])
+        ){  
+            tmp_result.bits[3] = value_1.bits[3];
+            s21_calculating_sub_mantissa(value_1, value_2, &tmp_result);
         } else {
-            status = calculating_sub_mantissa(value_2, value_1, &tmp_result);
+            tmp_result.bits[3] = value_2.bits[3];
+             s21_calculating_sub_mantissa(value_2, value_1, &tmp_result);
         }
-        s21_copy(result, tmp_result);
     }
     if (status == 0){
-        s21_normalize_decimal(&result);
+        s21_copy(result, tmp_result);
+        s21_normalize_decimal(result);
     }
     return status;
 }

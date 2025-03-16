@@ -18,7 +18,7 @@ int main() {
                             // s21_round_test(),
                             // s21_truncate_test(),
                             // s21_negate_test(),
-                            // s21_add_test(),
+                            s21_add_test(),
                             // s21_sub_test(),
                             // s21_mul_test(),
                             // s21_div_test(),
@@ -27,7 +27,7 @@ int main() {
     for (Suite** current_testcase = list_cases; *current_testcase; current_testcase++) {
         run_testcase(*current_testcase);
     }
-        
+
     return 0;
 }
 

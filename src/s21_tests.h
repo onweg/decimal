@@ -26,3 +26,6 @@ Suite *s21_add_test(void);
 Suite *s21_sub_test(void);
 Suite *s21_mul_test(void);
 Suite *s21_div_test(void);
+
+void test_add(s21_decimal decimal1, s21_decimal decimal2, s21_decimal check);
+void test_add_fail(s21_decimal decimal1, s21_decimal decimal2, int check);
