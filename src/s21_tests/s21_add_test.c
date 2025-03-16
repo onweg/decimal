@@ -5,12 +5,12 @@ START_TEST(add_0) {
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+//   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -19,12 +19,12 @@ START_TEST(add_1) {
   s21_decimal val2 = {{15, 0, 0, ~(UINT_MAX / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -51,12 +51,12 @@ START_TEST(add_4) {
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -65,12 +65,12 @@ START_TEST(add_5) {
   s21_decimal val2 = {{8, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -79,12 +79,12 @@ START_TEST(add_6) {
   s21_decimal val2 = {{2, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -93,12 +93,12 @@ START_TEST(add_7) {
   s21_decimal val2 = {{8, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -107,12 +107,12 @@ START_TEST(add_8) {
   s21_decimal val2 = {{0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -121,12 +121,12 @@ START_TEST(add_9) {
   s21_decimal val2 = {{8, 0, 0, ~(UINT_MAX / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -135,12 +135,12 @@ START_TEST(add_10) {
   s21_decimal val2 = {{0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -149,12 +149,12 @@ START_TEST(add_11) {
   s21_decimal val2 = {{4, 0, 0, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -172,12 +172,12 @@ START_TEST(add_13) {
   s21_decimal val2 = {{4, 0, 0, ~(UINT_MAX / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -186,12 +186,12 @@ START_TEST(add_14) {
   s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, ~(UINT_MAX / 2)}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -200,12 +200,12 @@ START_TEST(add_15) {
   s21_decimal val2 = {{UINT_MAX, UINT_MAX, UINT_MAX, 0}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -244,12 +244,12 @@ START_TEST(add_19) {
   s21_decimal val2 = {{123, 0, 0, 0b00000000000000010000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -258,12 +258,12 @@ START_TEST(add_20) {
   s21_decimal val2 = {{123, 0, 0, 0b00000000000000100000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -272,12 +272,12 @@ START_TEST(add_21) {
   s21_decimal val2 = {{123, 0, 0, 0b00000000000000010000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 
 START_TEST(add_22) {
@@ -285,12 +285,12 @@ START_TEST(add_22) {
   s21_decimal val2 = {{123, 0, 0, 0b00000000000000100000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -299,12 +299,12 @@ START_TEST(add_23) {
   s21_decimal val2 = {{123, 0, 0, 0b00000000000000010000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -313,12 +313,12 @@ START_TEST(add_24) {
   s21_decimal val2 = {{123, 0, 0, 0b00000000000000100000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -327,12 +327,12 @@ START_TEST(add_25) {
   s21_decimal val2 = {{123, 0, 0, 0b00000000000000010000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 
 START_TEST(add_26) {
@@ -340,12 +340,12 @@ START_TEST(add_26) {
   s21_decimal val2 = {{123, 0, 0, 0b00000000000000100000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -354,12 +354,12 @@ START_TEST(add_27) {
   s21_decimal val2 = {{1, 0, 0,      0b00000000000010000000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -368,12 +368,12 @@ START_TEST(add_28) {
   s21_decimal val2 = {{1, 0, 0,      0b10000000000001000000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
@@ -382,12 +382,12 @@ START_TEST(add_29) {
   s21_decimal val2 = {{100, 0, 0,    0b00000000000000010000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 
 START_TEST(add_30) {
@@ -395,12 +395,12 @@ START_TEST(add_30) {
   s21_decimal val2 = {{100, 0, 0,    0b00000000000000100000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(0, s21_add(val1, val2, &res));
-  s21_print_decimal(val1);
-  printf("\n");
-  s21_print_decimal(val2);
-  printf("\n");
-  s21_print_decimal(res);
-  printf("\n\n");
+  //   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 END_TEST
 
