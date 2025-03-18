@@ -393,6 +393,14 @@ START_TEST(test_s21_is_greater_44) {
 }
 END_TEST
 
+START_TEST(test_s21_is_greater_45) {
+    s21_decimal decimal1 = {{0, 0, 0, 0}};
+    s21_decimal decimal2 = {{0, 0, 0, 0b10000000000000000000000000000000}};
+    int result = s21_is_greater(decimal1, decimal2);
+    ck_assert_int_eq(result, 0);
+}
+END_TEST
+
 Suite *s21_is_greater_test(void) {
   Suite *s = suite_create("s21_is_greater Tests");
   TCase *tc_core = tcase_create("Core");
@@ -441,6 +449,7 @@ Suite *s21_is_greater_test(void) {
   tcase_add_test(tc_core, test_s21_is_greater_42);
   tcase_add_test(tc_core, test_s21_is_greater_43);
   tcase_add_test(tc_core, test_s21_is_greater_44);
+  tcase_add_test(tc_core, test_s21_is_greater_45);
 
   suite_add_tcase(s, tc_core);
   return s;
