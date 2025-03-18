@@ -63,7 +63,18 @@ int s21_get_sign(const s21_decimal value);
 int s21_get_exp(const s21_decimal value);
 void s21_shift_bits_to_left(s21_decimal *value, int shift);
 void s21_shift_bits_to_right(s21_decimal *value, int shift);
-void s21_scale_equalize(s21_decimal *value1, s21_decimal *value2);
+
+// выравнивание масштаба с отбросом битов
+void s21_scale_equalize_with_bit_drop(s21_decimal *value1, s21_decimal *value2);
+// выравнивание масштаба с математическим округлением
+void s21_scale_equalize_with_mathematical_rounding(s21_decimal *value1, s21_decimal *value2);
+// выравнивание масштаба с банковским округлением
+void s21_scale_equalize_with_bank_rounding(s21_decimal *value1, s21_decimal *value2);
+// выравнивание масштаба с банковским округлением для вычитания и суммы
+void s21_scale_equalize_with_bank_rounding_for_add_and_sub(s21_decimal *value1, s21_decimal *value2);
+// выравнивание масштаба с округлением вверх
+void s21_scale_equalize_with_rounding_up(s21_decimal *value1, s21_decimal *value2);
+
 int s21_scale_increase(s21_decimal *value, int shift);
 int s21_scale_decrease(s21_decimal *value, int shift);
 void s21_copy(s21_decimal *value, const s21_decimal src);
@@ -75,7 +86,10 @@ int s21_decimal_is_zero(const s21_decimal value);
 
 
 
-// понять что с округлением 
-// понять что с округлением во время операций
-// во время переполнений или когда очень большое и очень маленькой 
+// понять и реализовать что с банковским округлением во время операций
 // сделать нормалайз для 0, чтоб когда подавался -0 или 0/10^exp exp становился 0
+// сделать тесты так, что бы был не вывод принта а сравнивались два десимала с помощью функции сравнения переменная res и то что выводится в принте после проверки, что вывод действительно коректен
+// проверить тесты где 123 и 109 на банковское округление
+
+// 16.03 марта последний лог когда все работает без банковского округления, когда тупо отбрасывает биты
+

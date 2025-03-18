@@ -8,7 +8,7 @@ int main() {
                             // s21_from_decimal_to_int_test(),
                             // s21_from_float_to_decimal_test(),
                             // s21_from_decimal_to_float_test(),
-                            // s21_is_less_test(),
+                            s21_is_less_test(),
                             // s21_is_less_or_equal_test(),
                             s21_is_greater_test(),
                             // s21_is_greater_or_equal_test(),

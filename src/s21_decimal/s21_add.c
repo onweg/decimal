@@ -25,7 +25,7 @@
 int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){
     s21_normalize_decimal(&value_1);
     s21_normalize_decimal(&value_2);
-    s21_scale_equalize(&value_1, &value_2);
+    s21_scale_equalize_with_bank_rounding_for_add_and_sub(&value_1, &value_2);
     s21_decimal tmp_result = {0};
     enum S21_STATUS status = 0;
     if (s21_get_sign(value_1) == s21_get_sign(value_2)) {
