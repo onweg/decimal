@@ -20,6 +20,8 @@
 
 int s21_mul(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){
     int sign_result = s21_get_sign(value_1) == s21_get_sign(value_2) ? 0 : 1;
+    s21_set_sign(&value_1, 0);
+    s21_set_sign(&value_2, 0);
     s21_normalize_decimal(&value_1);
     s21_normalize_decimal(&value_2);
     int exp_result = s21_get_exp(value_1) + s21_get_exp(value_2);
