@@ -201,6 +201,20 @@ START_TEST(test17) {
 
 } END_TEST
 
+START_TEST(test18) {
+  s21_decimal val_1 = {{0x1c6bec8, 0x0, 0x0, 0x80000000}};  // -29802184
+  s21_decimal val_2 = {
+      {0xabad5278, 0x9432da5, 0x0, 0x120000}};  // 0.667427359354081912
+  s21_decimal answer = {{0x36D7DC0, 0xC2B1439, 0x10740A,
+                         0x80120000}};  // -19890792.970104470292495808
+  s21_decimal result = {{0}};
+  int status = s21_mul(val_1, val_2, &result);
+  ck_assert_int_eq(status, 0);
+  ck_assert_int_eq(s21_is_equal(answer, result), 1);
+  
+}
+END_TEST
+
 
 
 Suite *s21_mul_test(void) {
@@ -227,6 +241,7 @@ Suite *s21_mul_test(void) {
 	// tcase_add_test(tc_core, test15);
 	// tcase_add_test(tc_core, test16);
 	tcase_add_test(tc_core, test17);
+	tcase_add_test(tc_core, test18);
 
 	suite_add_tcase(s, tc_core);
 	return s;
