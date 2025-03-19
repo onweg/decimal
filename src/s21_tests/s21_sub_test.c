@@ -836,16 +836,15 @@ START_TEST(sub_44) {
 
 START_TEST(sub_45) {
   s21_decimal val1 = {{5, 0, 0,                            0b00000000000000010000000000000000}};
-  s21_decimal val2 = {{0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFE, 0b00000000000000000000000000000000}};
-  
+  s21_decimal val2 = {{0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0b10000000000000000000000000000000}};
   s21_decimal res;
   ck_assert_int_eq(1, s21_sub(val1, val2, &res));
-  // s21_print_decimal(val1);
-  // printf("\n");
-  // s21_print_decimal(val2);
-  // printf("\n");
-  // s21_print_decimal(res);
-  // printf("\n\n");
+//   s21_print_decimal(val1);
+//   printf("\n");
+//   s21_print_decimal(val2);
+//   printf("\n");
+//   s21_print_decimal(res);
+//   printf("\n\n");
 }
 
 END_TEST

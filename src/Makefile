@@ -52,9 +52,9 @@ $(LIBRARY_COV): $(OBJ_COV_FILES)
 $(BUILD_SRC_COV_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $(GCOV_FLAGS) -c $^ -o $@
 
+test: clean no_clean_test
 
-
-test: $(TEST_OBJ_FILES) $(LIBRARY_COV)
+no_clean_test: $(TEST_OBJ_FILES) $(LIBRARY_COV)
 	$(CC) $(CFLAGS) $^ $(LDFLAGS) -o $(TEST_BINARY)
 	./$(TEST_BINARY)
 
