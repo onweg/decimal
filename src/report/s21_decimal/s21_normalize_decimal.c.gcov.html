@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-03-19 16:43:51</td>
+            <td class="headerValue">2025-03-20 11:24:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -62,20 +62,20 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">         829 : void s21_normalize_decimal(s21_decimal *value) {</span></span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">        1258 :         while (s21_get_exp(*value) != 0) {</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">         766 :                 s21_decimal tmp = *value;</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">         766 :                 s21_scale_decrease(&amp;tmp, 1);</span></span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">         766 :                 s21_scale_increase(&amp;tmp, 1);</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">         766 :                 if (tmp.bits[0] == value-&gt;bits[0] &amp;&amp; tmp.bits[1] == value-&gt;bits[1] &amp;&amp; tmp.bits[2] == value-&gt;bits[2] &amp;&amp; tmp.bits[3] == value-&gt;bits[3]) {</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">         429 :                         s21_scale_decrease(value, 1);</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">         429 :                 } else {</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">         337 :                         return;</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">        1032 : void s21_normalize_decimal(s21_decimal *value) {</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">        1483 :         while (s21_get_exp(*value) != 0) {</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">         888 :                 s21_decimal tmp = *value;</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">         888 :                 s21_scale_decrease(&amp;tmp, 1);</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">         888 :                 s21_scale_increase(&amp;tmp, 1);</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">         888 :                 if (tmp.bits[0] == value-&gt;bits[0] &amp;&amp; tmp.bits[1] == value-&gt;bits[1] &amp;&amp; tmp.bits[2] == value-&gt;bits[2] &amp;&amp; tmp.bits[3] == value-&gt;bits[3]) {</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">         451 :                         s21_scale_decrease(value, 1);</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">         451 :                 } else {</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">         437 :                         return;</span></span>
 <span id="L12"><span class="lineNum">      12</span>              :                 }</span>
 <span id="L13"><span class="lineNum">      13</span>              :         }</span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">         492 :         return;</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">         595 :         return;</span></span>
 <span id="L15"><span class="lineNum">      15</span>              : </span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">         829 : }</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">        1032 : }</span></span>
         </pre>
               </td>
             </tr>

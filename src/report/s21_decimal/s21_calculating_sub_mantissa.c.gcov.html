@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-03-19 16:43:51</td>
+            <td class="headerValue">2025-03-20 11:24:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -69,12 +69,12 @@
 <span id="L7"><span class="lineNum">       7</span>              : // 0 - успешное вычитание</span>
 <span id="L8"><span class="lineNum">       8</span>              : // 1 - некорректные данные</span>
 <span id="L9"><span class="lineNum">       9</span>              : </span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          48 : int s21_calculating_sub_mantissa(s21_decimal value_1, const s21_decimal value_2, s21_decimal *result) {</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          48 :         int i = 0;</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">        4656 :         while (i &lt; 96) {</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">        4608 :                 int bit1 = s21_get_bit(value_1, i);</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">        4608 :                 int bit2 = s21_get_bit(value_2, i);</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">        4608 :                 if (bit1 &lt; bit2) {</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          43 : int s21_calculating_sub_mantissa(s21_decimal value_1, const s21_decimal value_2, s21_decimal *result) {</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          43 :         int i = 0;</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">        4171 :         while (i &lt; 96) {</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">        4128 :                 int bit1 = s21_get_bit(value_1, i);</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">        4128 :                 int bit2 = s21_get_bit(value_2, i);</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">        4128 :                 if (bit1 &lt; bit2) {</span></span>
 <span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">          36 :                         int j = i + 1;</span></span>
 <span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">          70 :                         while (j &lt; 96 &amp;&amp; s21_get_bit(value_1, j) == 0) {</span></span>
 <span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">          34 :                                 j++;</span></span>
@@ -88,11 +88,11 @@
 <span id="L26"><span class="lineNum">      26</span>              :                         }</span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">          36 :                         bit1 = 2;</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">          36 :                 }</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">        4608 :                 s21_set_bit(result, i, bit1 - bit2);</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">        4608 :                 i++;</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">        4128 :                 s21_set_bit(result, i, bit1 - bit2);</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">        4128 :                 i++;</span></span>
 <span id="L31"><span class="lineNum">      31</span>              :         }</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          48 :         return 0;</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          48 : }</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          43 :         return 0;</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          43 : }</span></span>
         </pre>
               </td>
             </tr>

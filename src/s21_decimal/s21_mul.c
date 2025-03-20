@@ -59,5 +59,6 @@ int s21_mul(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){
         exp_result--;
     }
     s21_copy(result, tmp_result);
+    s21_normalize_decimal(&result);
     return 0;
 }
