@@ -22,6 +22,8 @@
 // 2 — число слишком мало или равно отрицательной бесконечности;
 // 3 - деление на ноль
 
+s21_decimal getting_fractional(s21_decimal value_1, s21_decimal value_2);
+
 int s21_div(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){
     // if (s21_is_zero(value_2)) return 4;
     // s21_normalize_decimal(&value_1);
@@ -31,84 +33,45 @@ int s21_div(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){
     // s21_set_sign(&value_2, 0);
     // int exp_result = s21_get_exp(value_1) - s21_get_exp(value_2);
 
-    // s21_decimal tmp_value_1 = {0};
-    // s21_copy(&tmp_value_2, value_2);
-    // while (s21_is_greater(tmp_value_1, tmp_value_2)) {
-    //     int i = 0;
-    //     while (s21_is_greater(tmp_value_1, tmp_value_2)) {
-    //         if (s21_get _bit(value_2, 95) == 0) {
-    //             s21_shift_bits_to_left(&tmp_value_2, 1);
-    //             i++;
-    //         } else {
-    //             break;
-    //         }
-    //     }
-    //     s21_shift_bits_to_right(&tmp_value_2, 1);
-    //     i--;
-    //     s21_sub(tmp_value_1, tmp_value_2, &tmp_value_1);
-    //     s21_decimal r = {1, 0, 0, 0};
-    //     s21_shift_bits_to_left(&r, i);
-    //     s21_add(tmp_result, r, &tmp_result);
+    // s21_decimal tmp_result = {0};
+    // s21_decimal remainder = {0};
+    // s21_copy(&int_part, s21_div_with_remainder(value_1, value_2, &remainder));
+
+    // while ( !s21_is_zero(remainder)) {
+    //     s21_decimal quotient = {0};
+    //     s21_decimal ten = {10, 0, 0, 0};
+    //     s21_mul(remainder, hundred);
+    //     s21_copy(&quotient, s21_div_with_remainder(remainder, value_2, &remainder))
+    //     // переводим quotient в int подучаем гарантировано одну цифру
+    //     // добавляем эту цифру в конец tmp_result (уивличиваем масштаб и складываем с полученным decimal)
     // }
-
-    // // теперь работа с остатком 
-    // // начинается рекурсия
-
-    // s21_decimal remain = {0};
-    // s21_copy(&remain, tmp_value_1);
-
-    // if (s21_is_zero(remain)) {
-    //     return 0;
-    // }
-    // // выход из рекурсии if (остаток 0 то возвращаю ту остаток )
-    // // вход в s21_div()
 
     // if (exp_result < 0) {
-    //     то еще домножить на 10, сначала степень exp уменьшить, а только потом умножать 
+    //     // поделить на 10 
     // } 
 
     // return 0;
 }
 
-// s21_decimal getting_fractional(s21_decimal value_1, s21_decimal value_2) {
-//     if (s21_is_zero(value_2)) return {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
-
-
-//     s21_decimal tmp_value_1 = {0};
-//     s21_copy(&tmp_value_2, value_2);
-//     while (s21_is_greater(tmp_value_1, tmp_value_2)) {
+// int s21_div_with_remainder(s21_decimal value_1, s21_decimal value_2, s21_decimal *remainder) {
+//     s21_decimal tmp_result = {0};
+//     while (s21_is_greater(value_1, value_2)) {
 //         int i = 0;
-//         while (s21_is_greater(tmp_value_1, tmp_value_2)) {
-//             if (s21_get _bit(value_2, 95) == 0) {
-//                 s21_shift_bits_to_left(&tmp_value_2, 1);
+//         while (s21_is_greater(value_1, value_2)) {
+//             if (s21_get_bit(value_2, 95) == 0) {
+//                 s21_shift_bits_to_left(&value_2, 1);
 //                 i++;
 //             } else {
 //                 break;
 //             }
 //         }
-//         s21_shift_bits_to_right(&tmp_value_2, 1);
+//         s21_shift_bits_to_right(&value_2, 1);
 //         i--;
-//         s21_sub(tmp_value_1, tmp_value_2, &tmp_value_1);
+//         s21_sub(value_1, value_2, &value_1);
 //         s21_decimal r = {1, 0, 0, 0};
 //         s21_shift_bits_to_left(&r, i);
 //         s21_add(tmp_result, r, &tmp_result);
 //     }
-
-//     // теперь работа с остатком 
-//     // начинается рекурсия
-
-//     s21_decimal remain = {0};
-//     s21_copy(&remain, tmp_value_1);
-
-//     if (s21_is_zero(remain)) {
-//         return 0;
-//     }
-//     // выход из рекурсии if (остаток 0 то возвращаю ту остаток )
-//     // вход в s21_div()
-
-//     if (exp_result < 0) {
-//         то еще домножить на 10, сначала степень exp уменьшить, а только потом умножать 
-//     } 
-
-//     return 0;
+//     s21_copy(remainder, value_1);
+//     return tmp_result;
 // }
