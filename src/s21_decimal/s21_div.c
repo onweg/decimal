@@ -32,28 +32,29 @@ int s21_div(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){
     // s21_set_sign(&value_1, 0);
     // s21_set_sign(&value_2, 0);
     // int exp_result = s21_get_exp(value_1) - s21_get_exp(value_2);
-
     // s21_decimal tmp_result = {0};
     // s21_decimal remainder = {0};
-    // s21_copy(&int_part, s21_div_with_remainder(value_1, value_2, &remainder));
-
-    // while ( !s21_is_zero(remainder)) {
-    //     s21_decimal quotient = {0};
+    // s21_copy(&tmp_result, s21_div_with_remainder(value_1, value_2, &remainder));
+    // s21_decimal quotient = {0};
+    // while (exp_result < 28 && !s21_is_zero(remainder)) {
     //     s21_decimal ten = {10, 0, 0, 0};
-    //     s21_mul(remainder, hundred);
+    //     if (s21_mul(remainder, hundred) == 1) {
+
+    //     }
     //     s21_copy(&quotient, s21_div_with_remainder(remainder, value_2, &remainder))
-    //     // переводим quotient в int подучаем гарантировано одну цифру
-    //     // добавляем эту цифру в конец tmp_result (уивличиваем масштаб и складываем с полученным decimal)
+    //     s21_mul(&tmp_result, hundred);
+    //     s21_add(tmp_result, quotient);
+    //     exp_result++;
     // }
 
     // if (exp_result < 0) {
     //     // поделить на 10 
     // } 
 
-    // return 0;
+    return 0;
 }
 
-// int s21_div_with_remainder(s21_decimal value_1, s21_decimal value_2, s21_decimal *remainder) {
+// s21_decimal s21_div_with_remainder(s21_decimal value_1, s21_decimal value_2, s21_decimal *remainder) {
 //     s21_decimal tmp_result = {0};
 //     while (s21_is_greater(value_1, value_2)) {
 //         int i = 0;
