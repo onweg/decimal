@@ -21,24 +21,20 @@ int main() {
                             s21_add_test(),
                             s21_sub_test(),
                             s21_mul_test(),
-                            // s21_div_test(),
+                            s21_div_test(),
+                            s21_additional_function_test(),
                             NULL };
 
     for (Suite** current_testcase = list_cases; *current_testcase; current_testcase++) {
         run_testcase(*current_testcase);
     }
 
-
-    //  s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0b00000000000111000000000000000000};
+    // s21_decimal d = {4, 0, 0, 0x80010000};
     // s21_decimal b = {2, 0, 0, 0};
     // s21_decimal res = {0};
-    // s21_decimal answer = {0b00110011001100110011001100110011, 0b00110011001100110011001100110011, 0b00110011001100110011001100110011, 0b00000000000110110000000000000000};
-    // int status = s21_mul(d, b, &res);
-	// s21_print_decimal(res);
-	// printf("\n");
-	// s21_print_decimal(answer);
-	// printf("\n");
-
+	// s21_decimal answer = {2, 0, 0, 0x80010000};
+    // int status = s21_div(d, b, &res);
+    // ck_assert_int_eq(1, s21_is_equal(res, answer));
     return 0;
 }
 

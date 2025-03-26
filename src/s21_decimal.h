@@ -63,18 +63,11 @@ int s21_get_sign(const s21_decimal value);
 int s21_get_exp(const s21_decimal value);
 void s21_shift_bits_to_left(s21_decimal *value, int shift);
 void s21_shift_bits_to_right(s21_decimal *value, int shift);
-
-// выравнивание масштаба с отбросом битов
 void s21_scale_equalize_with_bit_drop(s21_decimal *value1, s21_decimal *value2);
-// выравнивание масштаба с математическим округлением
 void s21_scale_equalize_with_mathematical_rounding(s21_decimal *value1, s21_decimal *value2);
-// выравнивание масштаба с банковским округлением
 void s21_scale_equalize_with_bank_rounding(s21_decimal *value1, s21_decimal *value2);
-// выравнивание масштаба с банковским округлением для вычитания и суммы
 void s21_scale_equalize_with_bank_rounding_for_add_and_sub(s21_decimal *value1, s21_decimal *value2);
-// выравнивание масштаба с округлением вверх
 void s21_scale_equalize_with_rounding_up(s21_decimal *value1, s21_decimal *value2);
-
 int s21_scale_increase(s21_decimal *value, int shift);
 int s21_scale_decrease(s21_decimal *value, int shift);
 void s21_copy(s21_decimal *value, const s21_decimal src);
@@ -83,6 +76,7 @@ int s21_calculating_sub_mantissa(s21_decimal value_1, const s21_decimal value_2,
 void s21_normalize_decimal(s21_decimal *value);
 int s21_decimal_is_zero(const s21_decimal value);
 int s21_divide_by_10(const s21_decimal value, s21_decimal *quotient, int *remainder);
+int s21_multiplication_by_10(s21_decimal value, s21_decimal *result);
 
 
 
