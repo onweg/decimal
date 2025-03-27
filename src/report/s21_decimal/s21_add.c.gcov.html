@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-03-26 03:41:34</td>
+            <td class="headerValue">2025-03-27 22:50:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -84,21 +84,21 @@
 <span id="L22"><span class="lineNum">      22</span>              : // 2 — число слишком мало или равно отрицательной бесконечности;</span>
 <span id="L23"><span class="lineNum">      23</span>              : </span>
 <span id="L24"><span class="lineNum">      24</span>              : </span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">         839 : int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){</span></span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">         839 :     s21_normalize_decimal(&amp;value_1);</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">         839 :     s21_normalize_decimal(&amp;value_2);</span></span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">         839 :     s21_scale_equalize_with_bank_rounding_for_add_and_sub(&amp;value_1, &amp;value_2);</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">         839 :     s21_decimal tmp_result = {0};</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">         839 :     enum S21_STATUS status = 0;</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">         839 :     if (s21_get_sign(value_1) == s21_get_sign(value_2)) {</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">         826 :         tmp_result.bits[3] = value_1.bits[3];</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">         826 :         status = s21_calculating_sum_mantissa(value_1, value_2, &amp;tmp_result);</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">         826 :         if (status != 0) {</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">        2185 : int s21_add(s21_decimal value_1, s21_decimal value_2, s21_decimal *result){</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">        2185 :     s21_normalize_decimal(&amp;value_1);</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">        2185 :     s21_normalize_decimal(&amp;value_2);</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">        2185 :     s21_scale_equalize_with_bank_rounding_for_add_and_sub(&amp;value_1, &amp;value_2);</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">        2185 :     s21_decimal tmp_result = {0};</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">        2185 :     enum S21_STATUS status = 0;</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">        2185 :     if (s21_get_sign(value_1) == s21_get_sign(value_2)) {</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">        2172 :         tmp_result.bits[3] = value_1.bits[3];</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">        2172 :         status = s21_calculating_sum_mantissa(value_1, value_2, &amp;tmp_result);</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">        2172 :         if (status != 0) {</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">          13 :             if (s21_get_sign(value_1) == 1){</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           4 :                 status = S21_STATUS_NINF;</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           4 :             }</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          13 :         }</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">         826 :     } else {</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">        2172 :     } else {</span></span>
 <span id="L40"><span class="lineNum">      40</span>              :         if (</span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">          23 :             ((unsigned int)value_1.bits[2] &gt; (unsigned int)value_2.bits[2]) || </span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">          12 :             ((unsigned int)value_1.bits[2] == (unsigned int)value_2.bits[2]) &amp;&amp;  ((unsigned int)value_1.bits[1] &gt; (unsigned int)value_2.bits[1]) ||</span></span>
@@ -111,11 +111,11 @@
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           7 :              s21_calculating_sub_mantissa(value_2, value_1, &amp;tmp_result);</span></span>
 <span id="L50"><span class="lineNum">      50</span>              :         }</span>
 <span id="L51"><span class="lineNum">      51</span>              :     }</span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">         847 :     if (status == 0){</span></span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">         834 :         s21_copy(result, tmp_result);</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">         834 :         s21_normalize_decimal(result);</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">         834 :     }</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">         847 :     return status;</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">        2193 :     if (status == 0){</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">        2180 :         s21_copy(result, tmp_result);</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">        2180 :         s21_normalize_decimal(result);</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">        2180 :     }</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">        2193 :     return status;</span></span>
 <span id="L57"><span class="lineNum">      57</span>              : }</span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
 <span id="L59"><span class="lineNum">      59</span>              : </span>

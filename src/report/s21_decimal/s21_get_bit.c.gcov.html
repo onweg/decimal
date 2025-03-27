@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-03-26 03:41:34</td>
+            <td class="headerValue">2025-03-27 22:50:52</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -62,18 +62,18 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">     2898861 : int s21_get_bit(const s21_decimal value, int i){</span></span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">     2898861 :     int bit = -1;</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">     2898861 :     if (i &gt;= 0 &amp;&amp; i &lt; 32) {</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">      972270 :         bit = (value.bits[0] &amp; (1 &lt;&lt; i)) != 0;</span></span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">     2898861 :     } else if (i &gt;= 32 &amp;&amp; i &lt; 64) {</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">      968480 :         bit = (value.bits[1] &amp; (1 &lt;&lt; (i -= 32))) != 0;</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">     1926591 :     } else if (i &gt;= 64 &amp;&amp; i &lt; 96) {</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">      958111 :         bit = (value.bits[2] &amp; (1 &lt;&lt; (i -= 64))) != 0;</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">      958111 :     } else if (i &gt;= 96 &amp;&amp; i &lt; 128) {</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">     3553719 : int s21_get_bit(const s21_decimal value, int i){</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">     3553719 :     int bit = -1;</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">     3553719 :     if (i &gt;= 0 &amp;&amp; i &lt; 32) {</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">     1190937 :         bit = (value.bits[0] &amp; (1 &lt;&lt; i)) != 0;</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">     3553719 :     } else if (i &gt;= 32 &amp;&amp; i &lt; 64) {</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">     1186789 :         bit = (value.bits[1] &amp; (1 &lt;&lt; (i -= 32))) != 0;</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">     2362782 :     } else if (i &gt;= 64 &amp;&amp; i &lt; 96) {</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">     1175993 :         bit = (value.bits[2] &amp; (1 &lt;&lt; (i -= 64))) != 0;</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">     1175993 :     } else if (i &gt;= 96 &amp;&amp; i &lt; 128) {</span></span>
 <span id="L12"><span class="lineNum">      12</span> <span class="tlaUNC">           0 :         bit = (value.bits[3] &amp; (1 &lt;&lt; (i -= 96))) != 0;</span></span>
 <span id="L13"><span class="lineNum">      13</span> <span class="tlaUNC">           0 :     }</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">     2898861 :     return bit;</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">     3553719 :     return bit;</span></span>
 <span id="L15"><span class="lineNum">      15</span>              : }</span>
 <span id="L16"><span class="lineNum">      16</span>              : </span>
         </pre>

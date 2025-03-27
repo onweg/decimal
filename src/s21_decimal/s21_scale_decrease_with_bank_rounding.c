@@ -21,6 +21,7 @@ int s21_scale_decrease_with_bank_rounding(s21_decimal *value, int shift) {
 	s21_divide_by_10(*value, &tmp, &num2);
 	if (num1 > 5 || num1 == 5 && num2 % 2 == 0){
 		s21_decimal one = {1, 0, 0, 0};
+        s21_set_exp(&one, s21_get_exp(*value));
 		s21_set_sign(&one, s21_get_sign(*value));
 		s21_add(*value, one, value);
 	}

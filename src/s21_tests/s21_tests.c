@@ -28,13 +28,6 @@ int main() {
     for (Suite** current_testcase = list_cases; *current_testcase; current_testcase++) {
         run_testcase(*current_testcase);
     }
-
-    // s21_decimal d = {4, 0, 0, 0x80010000};
-    // s21_decimal b = {2, 0, 0, 0};
-    // s21_decimal res = {0};
-	// s21_decimal answer = {2, 0, 0, 0x80010000};
-    // int status = s21_div(d, b, &res);
-    // ck_assert_int_eq(1, s21_is_equal(res, answer));
     return 0;
 }
 

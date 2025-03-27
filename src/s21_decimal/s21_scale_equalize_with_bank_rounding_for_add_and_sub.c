@@ -20,6 +20,7 @@ void s21_scale_equalize_with_bank_rounding_for_add_and_sub(s21_decimal *value1, 
 			if (num1 > 5 || (num1 == 5 && num2 % 2 == 0)){
 				s21_decimal one = {1, 0, 0, 0};
 				s21_set_sign(&one, s21_get_sign(*value1));
+				s21_set_exp(&one, s21_get_exp(*value2));
 				s21_add(*value1, one, value1);
 			}
 		}
@@ -41,6 +42,7 @@ void s21_scale_equalize_with_bank_rounding_for_add_and_sub(s21_decimal *value1, 
 			if (num1 > 5 || (num1 == 5 && num2 % 2 == 0)){
 				s21_decimal one = {1, 0, 0, 0};
 				s21_set_sign(&one, s21_get_sign(*value2));
+				s21_set_exp(&one, s21_get_exp(*value2));
 				s21_add(*value2, one, value2);
 			}
 			

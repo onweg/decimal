@@ -187,6 +187,76 @@ START_TEST(test17) {
 
 } END_TEST
 
+START_TEST(test18) {
+  // 10 / 6 = 1.6666666666666666666666666667
+	s21_decimal d = {10, 0, 0, 0x00000000};
+    s21_decimal b = {6, 0, 0, 0x00000000};
+    s21_decimal res = {0};
+	s21_decimal answer = {0b00011010101010101010101010101011, 0b01100111100100110000001111110111, 0b00110101110110100101011111110010, 0b00000000000111000000000000000000};
+    int status = s21_div(d, b, &res);
+    ck_assert_int_eq(0, status);
+    ck_assert_int_eq(1, s21_is_equal(res, answer));
+
+} END_TEST
+
+START_TEST(test19) {
+	s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFE, 0x00000000};
+    s21_decimal b = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000000};
+    s21_decimal res = {0};
+       
+	s21_decimal answer = {0b01001000001011110111111111000011, 0b10011100100101010101001000000000, 0b00000011001110110010111000111100, 0b00000000000110110000000000000000}; // проверить
+    int status = s21_div(d, b, &res);
+    ck_assert_int_eq(0, status);
+    ck_assert_int_eq(1, s21_is_equal(res, answer));
+
+} END_TEST
+
+START_TEST(test20) {
+	s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000000};
+    s21_decimal b = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000000};
+    s21_decimal res = {0};
+	s21_decimal answer = {0x00000001, 0, 0, 0};
+    int status = s21_div(d, b, &res);
+    ck_assert_int_eq(0, status);
+    ck_assert_int_eq(1, s21_is_equal(res, answer));
+
+} END_TEST
+
+START_TEST(test21) {
+  // 792281625142643375935 / 782281625142643375931 = 1.0127831201431793474528374993
+	s21_decimal d = {0b00011000011100111011111100111111, 0b11110011000111011100010001100001, 0b00000000000000000000000000101010, 0x00000000};
+    s21_decimal b = {0b10001110100010111011111100111011, 0b01101000010101101010000101011100, 0b00000000000000000000000000101010, 0x00000000};
+    s21_decimal res = {0};
+	s21_decimal answer = {0b10011111011111000111000011010001, 0b10001110110101010011111010000000, 0b00100000101110011000101110101101, 0b00000000000111000000000000000000};
+    int status = s21_div(d, b, &res);
+    ck_assert_int_eq(0, status);
+    ck_assert_int_eq(1, s21_is_equal(res, answer));
+} END_TEST
+
+START_TEST(test22) {
+  // 79228162514264337593543950335 / 782281625142643375931 = 101278312.01431793474533993217
+	s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000000};
+    s21_decimal b = {0b10001110100010111011111100111011, 0b01101000010101101010000101011100, 0b00000000000000000000000000101010, 0x00000000};
+    s21_decimal res = {0};
+	s21_decimal answer = {0b10011111110100100010101100000001, 0b10001110110101010011111010000000, 0b00100000101110011000101110101101, 0b00000000000101000000000000000000};
+    int status = s21_div(d, b, &res);
+    ck_assert_int_eq(0, status);
+    ck_assert_int_eq(1, s21_is_equal(res, answer));
+  
+} END_TEST
+
+START_TEST(test23) {
+     // 5 / 0.9 = 5.5555555555555555555555555556
+	s21_decimal d =   {5, 0, 0, 0};
+    s21_decimal b = {9, 0, 0, 0x00010000};
+    s21_decimal res = {0};
+	s21_decimal answer =  {0b00000011100011100011100011100100, 0b01011001001111110110001010001101, 0b10110011100000100111101001111101, 0b00000000000111000000000000000000};
+    int status = s21_div(d, b, &res);
+    ck_assert_int_eq(0, status);
+    ck_assert_int_eq(1, s21_is_equal(res, answer));
+
+} END_TEST
+
 START_TEST(test_div_by_zero) {
   s21_decimal dividend = {{0}};
   s21_decimal divisor = {{0}};
@@ -505,7 +575,13 @@ Suite *s21_div_test(void) {
 	tcase_add_test(tc_core, test15);
 	tcase_add_test(tc_core, test16);
 	tcase_add_test(tc_core, test17);
-    tcase_add_test(tc_core, test_div_by_zero);
+	tcase_add_test(tc_core, test18);
+	tcase_add_test(tc_core, test19);
+	tcase_add_test(tc_core, test20);
+	tcase_add_test(tc_core, test21);
+	tcase_add_test(tc_core, test22);
+	tcase_add_test(tc_core, test23);
+  tcase_add_test(tc_core, test_div_by_zero);
   tcase_add_test(tc_core, test_div_positive);
   tcase_add_test(tc_core, test_div_negative);
   tcase_add_test(tc_core, test_div_diff_signs);
