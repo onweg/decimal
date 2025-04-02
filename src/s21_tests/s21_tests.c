@@ -13,7 +13,7 @@ int main() {
                             // s21_is_greater_or_equal_test(),
                             s21_is_equal_test(),
                             // s21_is_not_equal_test(),
-                            // s21_floor_test(),
+                            s21_floor_test(),
                             // s21_round_test(),
                             s21_truncate_test(),
                             s21_negate_test(),
@@ -28,10 +28,15 @@ int main() {
         run_testcase(*current_testcase);
     }
 
-    // s21_decimal res = {0, 0, 0, 0};
-	// s21_decimal answer = {0, 0, 0, 0};
-	// float src = 12345.6789;
-	// int status = s21_from_float_to_decimal(src, &res);
+    // s21_decimal a = {11, 0, 0, 0x80010000};
+	// s21_decimal res;
+	// s21_decimal answer = {2, 0, 0, 0x80000000};
+	// int status = s21_floor(a, &res);
+	// s21_print_decimal(res);
+	// printf("\n");
+	// s21_print_decimal(answer);
+	// printf("\n");
+
 
     return 0;
 }
