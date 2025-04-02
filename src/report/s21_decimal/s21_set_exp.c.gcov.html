@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-03-27 22:50:52</td>
+            <td class="headerValue">2025-04-02 16:24:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -62,18 +62,18 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">        5646 : void s21_set_exp(s21_decimal *value, int exp) {</span></span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">        5646 :         if (exp &gt;= 0 &amp;&amp; exp &lt; 29) {</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">       50805 :                 for (int i = 16; i &lt; 24; i++, exp /= 2) {</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">       45160 :                         int bit = exp % 2;</span></span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">       45160 :                         if (bit == 0) {</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">       40012 :                                 value-&gt;bits[3] &amp;= ~(1 &lt;&lt; i);</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">       45160 :                         } else if (bit == 1) {</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">        5148 :                                 value-&gt;bits[3] |= (1 &lt;&lt; i);</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">        5148 :                         }</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">       45160 :                 }</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">        5645 :         }</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">        5646 :         return;</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">        5761 : void s21_set_exp(s21_decimal *value, int exp) {</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">        5761 :         if (exp &gt;= 0 &amp;&amp; exp &lt; 29) {</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">       51831 :                 for (int i = 16; i &lt; 24; i++, exp /= 2) {</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">       46072 :                         int bit = exp % 2;</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">       46072 :                         if (bit == 0) {</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">       40708 :                                 value-&gt;bits[3] &amp;= ~(1 &lt;&lt; i);</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">       46072 :                         } else if (bit == 1) {</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">        5364 :                                 value-&gt;bits[3] |= (1 &lt;&lt; i);</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">        5364 :                         }</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">       46072 :                 }</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">        5759 :         }</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">        5761 :         return;</span></span>
 <span id="L15"><span class="lineNum">      15</span>              : }</span>
 <span id="L16"><span class="lineNum">      16</span>              : </span>
         </pre>

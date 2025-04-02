@@ -6,8 +6,8 @@ int main() {
                             //
                             // s21_from_int_to_decimal_test(),
                             s21_from_decimal_to_int_test(),
-                            // s21_from_float_to_decimal_test(),
-                            // s21_from_decimal_to_float_test(),
+                            s21_from_float_to_decimal_test(),
+                            s21_from_decimal_to_float_test(),
                             s21_is_less_test(),
                             // s21_is_less_or_equal_test(),
                             s21_is_greater_test(),
@@ -28,6 +28,12 @@ int main() {
     for (Suite** current_testcase = list_cases; *current_testcase; current_testcase++) {
         run_testcase(*current_testcase);
     }
+
+    // s21_decimal res = {0, 0, 0, 0};
+	// s21_decimal answer = {0, 0, 0, 0};
+	// float src = 12345.6789;
+	// int status = s21_from_float_to_decimal(src, &res);
+
     return 0;
 }
 
@@ -37,3 +43,16 @@ void run_testcase(Suite* testcase) {
     srunner_run_all(sr, CK_NORMAL);
     srunner_free(sr);
 }
+
+/*
+FLT_MAX:        3.402823e+38
+FLT_MIN:        1.175494e-38
+FLT_TRUE_MIN:   1.401298e-45
+FLT_EPSILON:    1.192093e-07
+-FLT_EPSILON:   -1.192093e-07
+INFINITY:       inf
+-INFINITY:      -inf
+NAN:            nan
+Largest normal: 3.402823e+38
+Smallest normal:-3.402823e+38
+*/

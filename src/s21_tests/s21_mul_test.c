@@ -215,6 +215,18 @@ START_TEST(test18) {
 }
 END_TEST
 
+START_TEST(test19) {
+  s21_decimal val_1 = {{1, 0, 0, 0x001C0000}}; 
+  s21_decimal val_2 = {{1, 0, 0, 0x001C0000}};   
+  s21_decimal answer = {{0, 0, 0, 0}};
+  s21_decimal result = {{0}};
+  int status = s21_mul(val_1, val_2, &result);
+  ck_assert_int_eq(status, 0);
+  ck_assert_int_eq(s21_is_equal(answer, result), 1);
+  
+}
+END_TEST
+
 void init_decimal(s21_decimal *decimal, uint32_t bit0, uint32_t bit1, uint32_t bit2, uint32_t bit3) {
     decimal->bits[0] = bit0;
     decimal->bits[1] = bit1;
@@ -566,6 +578,7 @@ Suite *s21_mul_test(void) {
 	// tcase_add_test(tc_core, test16);
 	tcase_add_test(tc_core, test17);
 	tcase_add_test(tc_core, test18);
+	tcase_add_test(tc_core, test19);
 	tcase_add_test(tc_core, test_mul_positive);
     tcase_add_test(tc_core, test_mul_negative);
     tcase_add_test(tc_core, test_mul_diff_signs);
