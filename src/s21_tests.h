@@ -5,7 +5,7 @@
 
 void run_testcase(Suite *testcase);
 
-Suite *s21_from_int_to_decima_test(void);
+Suite *s21_from_int_to_decimal_test(void);
 Suite *s21_from_decimal_to_int_test(void);
 Suite *s21_from_float_to_decimal_test(void);
 Suite *s21_from_decimal_to_float_test(void);

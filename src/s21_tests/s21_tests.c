@@ -3,8 +3,7 @@
 
 int main() {
     Suite* list_cases[] = { 
-                            //
-                            // s21_from_int_to_decimal_test(),
+                            s21_from_int_to_decimal_test(),
                             s21_from_decimal_to_int_test(),
                             s21_from_float_to_decimal_test(),
                             s21_from_decimal_to_float_test(),
