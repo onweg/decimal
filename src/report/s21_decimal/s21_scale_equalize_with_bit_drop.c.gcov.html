@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-04-02 19:27:46</td>
+            <td class="headerValue">2025-04-02 19:41:06</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -62,25 +62,25 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">       21316 : void s21_scale_equalize_with_bit_drop(s21_decimal *value1, s21_decimal *value2) {</span></span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">       21316 :         int exp1 = s21_get_exp(*value1);</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">       21316 :         int exp2 = s21_get_exp(*value2);</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">       21316 :         if (exp1 == exp2) { return; }</span></span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          37 :         if (exp1 &gt; exp2) {</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          19 :                 int flag = 0;</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">         300 :                 while (flag == 0 &amp;&amp; s21_get_exp(*value2) &lt; 28 &amp;&amp; s21_get_exp(*value2) &lt; s21_get_exp(*value1)) {</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">         281 :                         flag = s21_scale_increase(value2, 1);</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">       21374 : void s21_scale_equalize_with_bit_drop(s21_decimal *value1, s21_decimal *value2) {</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">       21374 :         int exp1 = s21_get_exp(*value1);</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">       21374 :         int exp2 = s21_get_exp(*value2);</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">       21374 :         if (exp1 == exp2) { return; }</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          74 :         if (exp1 &gt; exp2) {</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          38 :                 int flag = 0;</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">         600 :                 while (flag == 0 &amp;&amp; s21_get_exp(*value2) &lt; 28 &amp;&amp; s21_get_exp(*value2) &lt; s21_get_exp(*value1)) {</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">         562 :                         flag = s21_scale_increase(value2, 1);</span></span>
 <span id="L11"><span class="lineNum">      11</span>              :                 }</span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">          19 :                 s21_scale_decrease(value1, s21_get_exp(*value1) - s21_get_exp(*value2));</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">          19 :         } else {</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">          18 :                 int flag = 0;</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">         230 :                 while (flag == 0 &amp;&amp; s21_get_exp(*value1) &lt; 28 &amp;&amp; s21_get_exp(*value1) &lt; s21_get_exp(*value2)) {</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">         212 :                         flag = s21_scale_increase(value1, 1);</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">          38 :                 s21_scale_decrease(value1, s21_get_exp(*value1) - s21_get_exp(*value2));</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">          38 :         } else {</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">          36 :                 int flag = 0;</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">         460 :                 while (flag == 0 &amp;&amp; s21_get_exp(*value1) &lt; 28 &amp;&amp; s21_get_exp(*value1) &lt; s21_get_exp(*value2)) {</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">         424 :                         flag = s21_scale_increase(value1, 1);</span></span>
 <span id="L17"><span class="lineNum">      17</span>              :                 }</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">          18 :                 s21_scale_decrease(value2, s21_get_exp(*value2) - s21_get_exp(*value1));</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">          36 :                 s21_scale_decrease(value2, s21_get_exp(*value2) - s21_get_exp(*value1));</span></span>
 <span id="L19"><span class="lineNum">      19</span>              :         }</span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">          37 :         return;</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">       21316 : }</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">          74 :         return;</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">       21374 : }</span></span>
         </pre>
               </td>
             </tr>
