@@ -1,5 +1,4 @@
 #include "../s21_decimal.h"
-#include <math.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -8,7 +7,7 @@
 #define MAX_FLOAT_VALUE 7.9228162514264337593543950335e28
 
 int s21_from_float_to_decimal(float src, s21_decimal *dst) {
-    if (dst == NULL || isnan(src) || isinf(src)) return 1; 
+    if (dst == NULL) return 1; 
     if (src == 0.0f) {
         dst->bits[0] = 0;
         dst->bits[1] = 0;

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-04-02 19:41:06</td>
+            <td class="headerValue">2025-04-02 19:52:19</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -61,59 +61,58 @@
 <pre class="sourceHeading">            Line data    Source code</pre>
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
-<span id="L2"><span class="lineNum">       2</span>              : #include &lt;math.h&gt;</span>
-<span id="L3"><span class="lineNum">       3</span>              : #include &lt;stdio.h&gt;</span>
-<span id="L4"><span class="lineNum">       4</span>              : #include &lt;string.h&gt;</span>
-<span id="L5"><span class="lineNum">       5</span>              : #include &lt;stdlib.h&gt;</span>
-<span id="L6"><span class="lineNum">       6</span>              : </span>
-<span id="L7"><span class="lineNum">       7</span>              : #define MIN_FLOAT_VALUE 1e-28</span>
-<span id="L8"><span class="lineNum">       8</span>              : #define MAX_FLOAT_VALUE 7.9228162514264337593543950335e28</span>
-<span id="L9"><span class="lineNum">       9</span>              : </span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          17 : int s21_from_float_to_decimal(float src, s21_decimal *dst) {</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          17 :     if (dst == NULL || isnan(src) || isinf(src)) return 1; </span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">          16 :     if (src == 0.0f) {</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :         dst-&gt;bits[0] = 0;</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :         dst-&gt;bits[1] = 0;</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :         dst-&gt;bits[2] = 0;</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           1 :         dst-&gt;bits[3] = 0;</span></span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :         return 0;</span></span>
-<span id="L18"><span class="lineNum">      18</span>              :     }</span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">          15 :     int sign_result = 0;</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">          15 :     if (src &lt; 0) {  </span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           4 :         sign_result = 1;</span></span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           4 :         src = -src;</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           4 :     }</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">          15 :     if (src &lt; MIN_FLOAT_VALUE || src &gt; MAX_FLOAT_VALUE) {</span></span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           2 :         return 1; </span></span>
-<span id="L26"><span class="lineNum">      26</span>              :     }</span>
-<span id="L27"><span class="lineNum">      27</span>              :     char buffer[64];</span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">          13 :     snprintf(buffer, sizeof(buffer), &quot;%.7g&quot;, src);</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          13 :     char *dot_position = strchr(buffer, '.');</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">          13 :     if (dot_position != NULL) {</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           9 :         *dot_position = '\0';</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           9 :     }</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          13 :     char intPart[32] = {0};</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">          13 :     strncpy(intPart, buffer, sizeof(intPart) - 1);</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">          13 :     char fracPart[32] = {0};</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          13 :     if (dot_position != NULL) {</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           9 :         strncpy(fracPart, dot_position + 1, sizeof(fracPart) - 1);</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           9 :     }</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          13 :     int scale = strlen(fracPart);</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">          13 :     char digits[64] = {0};</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">          13 :     strcpy(digits, intPart);</span></span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">          13 :     strcat(digits, fracPart);</span></span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">          13 :     __int128 intValue = 0;</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">          74 :     for (int i = 0; digits[i] != '\0'; i++) {</span></span>
-<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">          61 :         intValue = intValue * 10 + (digits[i] - '0');</span></span>
-<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">          61 :     }</span></span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">          13 :     if (intValue &gt;= ((__int128)1 &lt;&lt; 96)) return 1;</span></span>
-<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">          13 :     dst-&gt;bits[0] = (uint32_t)(intValue &amp; 0xFFFFFFFF);</span></span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">          13 :     dst-&gt;bits[1] = (uint32_t)((intValue &gt;&gt; 32) &amp; 0xFFFFFFFF);</span></span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">          13 :     dst-&gt;bits[2] = (uint32_t)((intValue &gt;&gt; 64) &amp; 0xFFFFFFFF);</span></span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">          13 :     s21_set_exp(dst, scale);</span></span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">          13 :     s21_set_sign(dst, sign_result);</span></span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">          13 :     return 0;</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">          17 : }</span></span>
+<span id="L2"><span class="lineNum">       2</span>              : #include &lt;stdio.h&gt;</span>
+<span id="L3"><span class="lineNum">       3</span>              : #include &lt;string.h&gt;</span>
+<span id="L4"><span class="lineNum">       4</span>              : #include &lt;stdlib.h&gt;</span>
+<span id="L5"><span class="lineNum">       5</span>              : </span>
+<span id="L6"><span class="lineNum">       6</span>              : #define MIN_FLOAT_VALUE 1e-28</span>
+<span id="L7"><span class="lineNum">       7</span>              : #define MAX_FLOAT_VALUE 7.9228162514264337593543950335e28</span>
+<span id="L8"><span class="lineNum">       8</span>              : </span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">          17 : int s21_from_float_to_decimal(float src, s21_decimal *dst) {</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          17 :     if (dst == NULL) return 1; </span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          16 :     if (src == 0.0f) {</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           1 :         dst-&gt;bits[0] = 0;</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :         dst-&gt;bits[1] = 0;</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :         dst-&gt;bits[2] = 0;</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :         dst-&gt;bits[3] = 0;</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           1 :         return 0;</span></span>
+<span id="L17"><span class="lineNum">      17</span>              :     }</span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">          15 :     int sign_result = 0;</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">          15 :     if (src &lt; 0) {  </span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           4 :         sign_result = 1;</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           4 :         src = -src;</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           4 :     }</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">          15 :     if (src &lt; MIN_FLOAT_VALUE || src &gt; MAX_FLOAT_VALUE) {</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :         return 1; </span></span>
+<span id="L25"><span class="lineNum">      25</span>              :     }</span>
+<span id="L26"><span class="lineNum">      26</span>              :     char buffer[64];</span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">          13 :     snprintf(buffer, sizeof(buffer), &quot;%.7g&quot;, src);</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">          13 :     char *dot_position = strchr(buffer, '.');</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          13 :     if (dot_position != NULL) {</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">           9 :         *dot_position = '\0';</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           9 :     }</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          13 :     char intPart[32] = {0};</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">          13 :     strncpy(intPart, buffer, sizeof(intPart) - 1);</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">          13 :     char fracPart[32] = {0};</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">          13 :     if (dot_position != NULL) {</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           9 :         strncpy(fracPart, dot_position + 1, sizeof(fracPart) - 1);</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           9 :     }</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          13 :     int scale = strlen(fracPart);</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          13 :     char digits[64] = {0};</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">          13 :     strcpy(digits, intPart);</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">          13 :     strcat(digits, fracPart);</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">          13 :     __int128 intValue = 0;</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">          74 :     for (int i = 0; digits[i] != '\0'; i++) {</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">          61 :         intValue = intValue * 10 + (digits[i] - '0');</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">          61 :     }</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">          13 :     if (intValue &gt;= ((__int128)1 &lt;&lt; 96)) return 1;</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">          13 :     dst-&gt;bits[0] = (uint32_t)(intValue &amp; 0xFFFFFFFF);</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">          13 :     dst-&gt;bits[1] = (uint32_t)((intValue &gt;&gt; 32) &amp; 0xFFFFFFFF);</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">          13 :     dst-&gt;bits[2] = (uint32_t)((intValue &gt;&gt; 64) &amp; 0xFFFFFFFF);</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">          13 :     s21_set_exp(dst, scale);</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">          13 :     s21_set_sign(dst, sign_result);</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">          13 :     return 0;</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">          17 : }</span></span>
         </pre>
               </td>
             </tr>

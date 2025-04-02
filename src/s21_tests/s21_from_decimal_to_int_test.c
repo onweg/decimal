@@ -1,5 +1,12 @@
 #include "../s21_tests.h"
 
+START_TEST(test0) {
+	s21_decimal a = {0, 0, 0, 0};
+	int *res = NULL;
+	int status = s21_from_decimal_to_int(a, &res);
+	ck_assert_int_eq(status, 1);
+} END_TEST
+
 START_TEST(test1) {
 	s21_decimal a = {0, 0, 0, 0};
 	int res;
