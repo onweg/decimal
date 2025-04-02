@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntryHi">92.3&nbsp;%</td>
+            <td class="headerCovTableEntry">26</td>
+            <td class="headerCovTableEntry">24</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-04-02 19:52:19</td>
+            <td class="headerValue">2025-04-02 20:06:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -66,21 +66,32 @@
 <span id="L4"><span class="lineNum">       4</span>              : // 1 - true</span>
 <span id="L5"><span class="lineNum">       5</span>              : </span>
 <span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">       21467 : int s21_is_greater(s21_decimal value_1, s21_decimal value_2) {</span></span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">       21467 :         if (s21_decimal_is_zero(value_1) &amp;&amp; s21_decimal_is_zero(value_2)) {</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           2 :                 return 0;</span></span>
-<span id="L9"><span class="lineNum">       9</span>              :         }</span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">       21465 :         int sign1 = s21_get_sign(value_1);</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">       21465 :     int sign2 = s21_get_sign(value_2);</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">       21465 :         if (sign1 != sign2)</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">          91 :         return (sign1 == 0) ? 1 : 0;</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">       21374 :         s21_normalize_decimal(&amp;value_1);</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">       21374 :         s21_normalize_decimal(&amp;value_2);</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">       21374 :         s21_scale_equalize_with_bit_drop(&amp;value_1, &amp;value_2);</span></span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">       21374 :         if (value_1.bits[2] != value_2.bits[2]) return (sign1 == 0) ? ((unsigned int)value_1.bits[2] &gt; (unsigned int)value_2.bits[2]) : ((unsigned int)value_1.bits[2] &lt; (unsigned int)value_2.bits[2]);</span></span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">        9999 :     if (value_1.bits[1] != value_2.bits[1]) return (sign1 == 0) ? ((unsigned int)value_1.bits[1] &gt; (unsigned int)value_2.bits[1]) : ((unsigned int)value_1.bits[1] &lt; (unsigned int)value_2.bits[1]);</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">        3526 :     if (value_1.bits[0] != value_2.bits[0]) return (sign1 == 0) ? ((unsigned int)value_1.bits[0] &gt; (unsigned int)value_2.bits[0]) : ((unsigned int)value_1.bits[0] &lt; (unsigned int)value_2.bits[0]);</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">          64 :         return 0;</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">       21467 : }</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">       21467 :   if (s21_decimal_is_zero(value_1) &amp;&amp; s21_decimal_is_zero(value_2)) {</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           2 :     return 0;</span></span>
+<span id="L9"><span class="lineNum">       9</span>              :   }</span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">       21465 :   int sign1 = s21_get_sign(value_1);</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">       21465 :   int sign2 = s21_get_sign(value_2);</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">       21465 :   if (sign1 != sign2) return (sign1 == 0) ? 1 : 0;</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">       21374 :   s21_normalize_decimal(&amp;value_1);</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">       21374 :   s21_normalize_decimal(&amp;value_2);</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">       21374 :   s21_scale_equalize_with_bit_drop(&amp;value_1, &amp;value_2);</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">       21374 :   if (value_1.bits[2] != value_2.bits[2])</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">       11375 :     return (sign1 == 0)</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">       11339 :                ? ((unsigned int)value_1.bits[2] &gt; (unsigned int)value_2.bits[2])</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">          72 :                : ((unsigned int)value_1.bits[2] &lt;</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">          36 :                   (unsigned int)value_2.bits[2]);</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">        9999 :   if (value_1.bits[1] != value_2.bits[1])</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">        6473 :     return (sign1 == 0)</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">        6473 :                ? ((unsigned int)value_1.bits[1] &gt; (unsigned int)value_2.bits[1])</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC">           0 :                : ((unsigned int)value_1.bits[1] &lt;</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :                   (unsigned int)value_2.bits[1]);</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">        3526 :   if (value_1.bits[0] != value_2.bits[0])</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">        3462 :     return (sign1 == 0)</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">        3442 :                ? ((unsigned int)value_1.bits[0] &gt; (unsigned int)value_2.bits[0])</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          40 :                : ((unsigned int)value_1.bits[0] &lt;</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">          20 :                   (unsigned int)value_2.bits[0]);</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">          64 :   return 0;</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">       21467 : }</span></span>
         </pre>
               </td>
             </tr>

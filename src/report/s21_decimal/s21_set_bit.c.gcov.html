@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-04-02 19:52:19</td>
+            <td class="headerValue">2025-04-02 20:06:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -62,20 +62,19 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">     3353640 : void s21_set_bit(s21_decimal *value, int i, int bit){</span></span>
-<span id="L4"><span class="lineNum">       4</span>              :     int shift, bit_cell;</span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">     3353640 :     if (i &gt;= 0 &amp;&amp; i &lt; 96) {</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">     3353640 :         shift = i % 32;</span></span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">     3353640 :         bit_cell = i / 32;</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">     3353640 :         if (bit == 0) {</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">     3038164 :             value-&gt;bits[bit_cell] &amp;= ~(1 &lt;&lt; shift);</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">     3353640 :         } else if (bit == 1) {</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">      315476 :             value-&gt;bits[bit_cell] |= (1 &lt;&lt; shift);</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">      315476 :         }</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">     3353640 :     }</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">     3353640 :     return;</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">     3356808 : void s21_set_bit(s21_decimal *value, int i, int bit) {</span></span>
+<span id="L4"><span class="lineNum">       4</span>              :   int shift, bit_cell;</span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">     3356808 :   if (i &gt;= 0 &amp;&amp; i &lt; 96) {</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">     3356808 :     shift = i % 32;</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">     3356808 :     bit_cell = i / 32;</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">     3356808 :     if (bit == 0) {</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">     3041002 :       value-&gt;bits[bit_cell] &amp;= ~(1 &lt;&lt; shift);</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">     3356808 :     } else if (bit == 1) {</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">      315806 :       value-&gt;bits[bit_cell] |= (1 &lt;&lt; shift);</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">      315806 :     }</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">     3356808 :   }</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">     3356808 :   return;</span></span>
 <span id="L15"><span class="lineNum">      15</span>              : }</span>
-<span id="L16"><span class="lineNum">      16</span>              : </span>
         </pre>
               </td>
             </tr>

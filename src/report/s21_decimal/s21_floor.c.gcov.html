@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-04-02 19:52:19</td>
+            <td class="headerValue">2025-04-02 20:06:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -62,30 +62,29 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">          11 : int s21_floor(s21_decimal value, s21_decimal *result){</span></span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">          11 :     if (result == NULL) {</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">           1 :         return 1;</span></span>
-<span id="L6"><span class="lineNum">       6</span>              :     }</span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          10 :     int exp = s21_get_exp(value);</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          10 :     int sign = s21_get_sign(value);</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">          10 :     s21_set_sign(&amp;value, 0);</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          10 :     if (exp &gt; 0) {</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           7 :         int rem = 0;</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">          25 :         while (exp &gt; 0) {</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">          18 :             rem = 0;</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">          18 :             s21_divide_by_10(value, &amp;value, &amp;rem);</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">          18 :             exp--;</span></span>
-<span id="L16"><span class="lineNum">      16</span>              :         }</span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           7 :         if (sign == 1 &amp;&amp; rem &gt; 0) {</span></span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           3 :             s21_decimal one = {1, 0, 0, 0};</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           3 :             s21_add(value, one, &amp;value);</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           3 :         }</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           7 :     }</span></span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">          10 :     s21_set_sign(&amp;value, sign);</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">          10 :     s21_copy(result, value);</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">          10 :     return 0;</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">          11 : int s21_floor(s21_decimal value, s21_decimal *result) {</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">          11 :   if (result == NULL) {</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">           1 :     return 1;</span></span>
+<span id="L6"><span class="lineNum">       6</span>              :   }</span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          10 :   int exp = s21_get_exp(value);</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          10 :   int sign = s21_get_sign(value);</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">          10 :   s21_set_sign(&amp;value, 0);</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          10 :   if (exp &gt; 0) {</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           7 :     int rem = 0;</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">          25 :     while (exp &gt; 0) {</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">          18 :       rem = 0;</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">          18 :       s21_divide_by_10(value, &amp;value, &amp;rem);</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">          18 :       exp--;</span></span>
+<span id="L16"><span class="lineNum">      16</span>              :     }</span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           7 :     if (sign == 1 &amp;&amp; rem &gt; 0) {</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           3 :       s21_decimal one = {1, 0, 0, 0};</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           3 :       s21_add(value, one, &amp;value);</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           3 :     }</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           7 :   }</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">          10 :   s21_set_sign(&amp;value, sign);</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">          10 :   s21_copy(result, value);</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">          10 :   return 0;</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">          11 : }</span></span>
-<span id="L26"><span class="lineNum">      26</span>              : </span>
         </pre>
               </td>
             </tr>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-04-02 19:52:19</td>
+            <td class="headerValue">2025-04-02 20:06:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -62,15 +62,14 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">           4 : int s21_negate(s21_decimal value, s21_decimal *result){</span></span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">           4 :     if (result == NULL) {</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">           1 :         return 1;</span></span>
-<span id="L6"><span class="lineNum">       6</span>              :     }</span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">           3 :     s21_copy(result, value);</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           3 :     s21_set_sign(result, !s21_get_sign(value));</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           3 :     return 0;</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">           4 : int s21_negate(s21_decimal value, s21_decimal *result) {</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">           4 :   if (result == NULL) {</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">           1 :     return 1;</span></span>
+<span id="L6"><span class="lineNum">       6</span>              :   }</span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">           3 :   s21_copy(result, value);</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           3 :   s21_set_sign(result, !s21_get_sign(value));</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           3 :   return 0;</span></span>
 <span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           4 : }</span></span>
-<span id="L11"><span class="lineNum">      11</span>              : </span>
         </pre>
               </td>
             </tr>
