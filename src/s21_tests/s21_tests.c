@@ -16,7 +16,7 @@ int main() {
                             // s21_floor_test(),
                             // s21_round_test(),
                             s21_truncate_test(),
-                            // s21_negate_test(),
+                            s21_negate_test(),
                             s21_add_test(),
                             s21_sub_test(),
                             s21_mul_test(),
