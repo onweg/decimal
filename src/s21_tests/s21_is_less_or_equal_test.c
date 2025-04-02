@@ -391,8 +391,7 @@ END_TEST
 
 START_TEST(test_s21_is_less_or_equal_44) {
   s21_decimal decimal1 = {{0xFFFFFFFE, 0xFFFFFFFF, 0xFFFFFFFF, 0}};
-  s21_decimal decimal2 = {
-      {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0b00000000000000010000000000000000}};
+  s21_decimal decimal2 = {{0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x10000}};
   int result = s21_is_less_or_equal(decimal1, decimal2);
   ck_assert_int_eq(result, 0);
 }
@@ -400,7 +399,7 @@ END_TEST
 
 START_TEST(test_s21_is_less_or_equal_45) {
   s21_decimal decimal1 = {{0, 0, 0, 0}};
-  s21_decimal decimal2 = {{0, 0, 0, 0b10000000000000000000000000000000}};
+  s21_decimal decimal2 = {{0, 0, 0, 0x80000000}};
   int result = s21_is_less_or_equal(decimal1, decimal2);
   ck_assert_int_eq(result, 1);
 }

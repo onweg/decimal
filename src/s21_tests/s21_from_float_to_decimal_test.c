@@ -77,7 +77,6 @@ START_TEST(test8) {
 
 START_TEST(test9) {
   s21_decimal res = {0, 0, 0, 0};
-  s21_decimal answer = {0x0001E240, 0, 0, 0};
   float src = 1.192093e-07;
   int status = s21_from_float_to_decimal(src, &res);
   ck_assert_int_eq(status, 0);

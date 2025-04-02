@@ -82,7 +82,7 @@ START_TEST(test9) {
   int a = -2147483648;
   s21_decimal res;
   int status = s21_from_int_to_decimal(a, &res);
-  s21_decimal answer = {2147483648, 0, 0, 0x80000000};
+  s21_decimal answer = {0x80000000, 0, 0, 0x80000000};
   ck_assert_int_eq(status, 0);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
 }

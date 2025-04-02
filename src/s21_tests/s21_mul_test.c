@@ -68,9 +68,9 @@ END_TEST
 
 START_TEST(test7) {
   s21_decimal d = {26, 0, 0, 0};
-  s21_decimal b = {1, 0, 0, 0b10000000000000000000000000000000};
+  s21_decimal b = {1, 0, 0, 0x80000000};
   s21_decimal res = {0};
-  s21_decimal answer = {26, 0, 0, 0b10000000000000000000000000000000};
+  s21_decimal answer = {26, 0, 0, 0x80000000};
   int status = s21_mul(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -79,9 +79,9 @@ END_TEST
 
 START_TEST(test8) {
   s21_decimal d = {1, 0, 0, 0};
-  s21_decimal b = {26, 0, 0, 0b10000000000000000000000000000000};
+  s21_decimal b = {26, 0, 0, 0x80000000};
   s21_decimal res = {0};
-  s21_decimal answer = {26, 0, 0, 0b10000000000000000000000000000000};
+  s21_decimal answer = {26, 0, 0, 0x80000000};
   int status = s21_mul(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -89,10 +89,10 @@ START_TEST(test8) {
 END_TEST
 
 START_TEST(test9) {
-  s21_decimal d = {26, 0, 0, 0b10000000000000000000000000000000};
-  s21_decimal b = {1, 0, 0, 0b10000000000000000000000000000000};
+  s21_decimal d = {26, 0, 0, 0x80000000};
+  s21_decimal b = {1, 0, 0, 0x80000000};
   s21_decimal res = {0};
-  s21_decimal answer = {26, 0, 0, 0b00000000000000000000000000000000};
+  s21_decimal answer = {26, 0, 0, 0x0};
   int status = s21_mul(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -100,10 +100,10 @@ START_TEST(test9) {
 END_TEST
 
 START_TEST(test10) {
-  s21_decimal d = {26, 0, 0, 0b10000000000000000000000000000000};
-  s21_decimal b = {5, 0, 0, 0b10000000000000010000000000000000};
+  s21_decimal d = {26, 0, 0, 0x80000000};
+  s21_decimal b = {5, 0, 0, 0x80010000};
   s21_decimal res = {0};
-  s21_decimal answer = {13, 0, 0, 0b00000000000000000000000000000000};
+  s21_decimal answer = {13, 0, 0, 0x0};
   int status = s21_mul(d, b, &res);
   ck_assert_int_eq(0, status);
   // s21_print_decimal(res);
@@ -115,10 +115,10 @@ START_TEST(test10) {
 END_TEST
 
 START_TEST(test11) {
-  s21_decimal d = {25, 0, 0, 0b10000000000000000000000000000000};
-  s21_decimal b = {5, 0, 0, 0b10000000000000010000000000000000};
+  s21_decimal d = {25, 0, 0, 0x80000000};
+  s21_decimal b = {5, 0, 0, 0x80010000};
   s21_decimal res = {0};
-  s21_decimal answer = {125, 0, 0, 0b00000000000000010000000000000000};
+  s21_decimal answer = {125, 0, 0, 0x10000};
   int status = s21_mul(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -126,10 +126,8 @@ START_TEST(test11) {
 END_TEST
 
 START_TEST(test12) {
-  s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-                   0b00000000000000000000000000000000};
-  s21_decimal b = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-                   0b10000000000000010000000000000000};
+  s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x0};
+  s21_decimal b = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x80010000};
   s21_decimal res = {0};
   int status = s21_mul(d, b, &res);
   ck_assert_int_eq(2, status);
@@ -137,10 +135,8 @@ START_TEST(test12) {
 END_TEST
 
 START_TEST(test13) {
-  s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-                   0b00000000000000000000000000000000};
-  s21_decimal b = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-                   0b00000000000000010000000000000000};
+  s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x0};
+  s21_decimal b = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x10000};
   s21_decimal res = {0};
   int status = s21_mul(d, b, &res);
   ck_assert_int_eq(1, status);
@@ -150,12 +146,8 @@ END_TEST
 START_TEST(test14) {
   // 1,0000000000000000000000000000 * 1,0000000000000000000000000000
 
-  s21_decimal d = {
-      0b00010000000000000000000000000000, 0b00111110001001010000001001100001,
-      0b00100000010011111100111001011110, 0b10000000000111000000000000000000};
-  s21_decimal b = {
-      0b00010000000000000000000000000000, 0b00111110001001010000001001100001,
-      0b00100000010011111100111001011110, 0b10000000000111000000000000000000};
+  s21_decimal d = {0x10000000, 0x3E250261, 0x204FCE5E, 0x801C0000};
+  s21_decimal b = {0x10000000, 0x3E250261, 0x204FCE5E, 0x801C0000};
   s21_decimal res = {0};
   s21_decimal answer = {1, 0, 0, 0};
   int status = s21_mul(d, b, &res);
@@ -168,12 +160,12 @@ END_TEST
 // 	//  7,9228162514264337593543950335 * 2 =
 // 	// 15.845632502852867518708790067
 // 	s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-// 0b00000000000111000000000000000000};
+// 0x1C0000};
 //     s21_decimal b = {2, 0, 0, 0};
 //     s21_decimal res = {0};
-//     s21_decimal answer = {0b00110011001100110011001100110011,
-//     0b00110011001100110011001100110011, 0b00110011001100110011001100110011,
-//     0b00000000000110110000000000000000}; int status = s21_mul(d, b, &res);
+//     s21_decimal answer = {0x33333333,
+//     0x33333333, 0x33333333,
+//     0x1B0000}; int status = s21_mul(d, b, &res);
 //     ck_assert_int_eq(0, status);
 // 	s21_print_decimal(res);
 // 	printf("\n");
@@ -187,22 +179,22 @@ END_TEST
 // 	//  7,9228162514264337593543950335 * 3 =
 // 	// 23.768448754279301278063185100
 // 	s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-// 0b00000000000111000000000000000000};
+// 0x1C0000};
 //     s21_decimal b = {2, 0, 0, 0};
 //     s21_decimal res = {0};
-//     s21_decimal answer = {0b11001100110011001100110011001100,
-//     0b11001100110011001100110011001100, 0b01001100110011001100110011001100,
-//     0b00000000000110110000000000000000}; int status = s21_mul(d, b, &res);
+//     s21_decimal answer = {0xCCCCCCCC,
+//     0xCCCCCCCC, 0x4CCCCCCC,
+//     0x1B0000}; int status = s21_mul(d, b, &res);
 //     ck_assert_int_eq(0, status);
 //     ck_assert_int_eq(1, s21_is_equal(res, answer));
 
 // } END_TEST
 
 START_TEST(test17) {
-  s21_decimal d = {123, 0, 0, 0b00000000000000100000000000000000};
-  s21_decimal b = {123, 0, 0, 0b00000000000000100000000000000000};
+  s21_decimal d = {123, 0, 0, 0x20000};
+  s21_decimal b = {123, 0, 0, 0x20000};
   s21_decimal res = {0};
-  s21_decimal answer = {15129, 0, 0, 0b00000000000001000000000000000000};
+  s21_decimal answer = {15129, 0, 0, 0x40000};
   int status = s21_mul(d, b, &res);
   ck_assert_int_eq(0, status);
   // s21_print_decimal(res);

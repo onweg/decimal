@@ -3,7 +3,7 @@
 START_TEST(test0) {
   s21_decimal a = {0, 0, 0, 0};
   int *res = NULL;
-  int status = s21_from_decimal_to_int(a, &res);
+  int status = s21_from_decimal_to_int(a, res);
   ck_assert_int_eq(status, 1);
 }
 END_TEST
@@ -99,7 +99,7 @@ START_TEST(test9) {
 END_TEST
 
 START_TEST(test10) {
-  s21_decimal a = {2147483648, 0, 0, 0};
+  s21_decimal a = {0x80000000, 0, 0, 0};
   int res;
   int status = s21_from_decimal_to_int(a, &res);
   ck_assert_int_eq(status, 1);
@@ -117,16 +117,15 @@ START_TEST(test11) {
 END_TEST
 
 START_TEST(test12) {
-  s21_decimal a = {2147483650, 0, 0, 0};
+  s21_decimal a = {0x80000002, 0, 0, 0};
   int res;
   int status = s21_from_decimal_to_int(a, &res);
-  int answer = 2147483650;
   ck_assert_int_eq(status, 1);
 }
 END_TEST
 
 START_TEST(test13) {
-  s21_decimal a = {2147483648, 0, 0, 0x80000000};
+  s21_decimal a = {0x80000000, 0, 0, 0x80000000};
   int res;
   int status = s21_from_decimal_to_int(a, &res);
   int answer = -2147483648;
@@ -146,7 +145,7 @@ START_TEST(test14) {
 END_TEST
 
 START_TEST(test15) {
-  s21_decimal a = {2147483649, 0, 0, 0x80000000};
+  s21_decimal a = {0x80000001, 0, 0, 0x80000000};
   int res;
   int status = s21_from_decimal_to_int(a, &res);
   ck_assert_int_eq(status, 1);
@@ -154,7 +153,7 @@ START_TEST(test15) {
 END_TEST
 
 START_TEST(test16) {
-  s21_decimal a = {2147483648, 0, 0, 0x00050000};
+  s21_decimal a = {0x80000000, 0, 0, 0x00050000};
   int res;
   int status = s21_from_decimal_to_int(a, &res);
   int answer = 21474;
@@ -180,6 +179,7 @@ Suite *s21_from_decimal_to_int_test(void) {
   s = suite_create("s21_from_decimal_to_int");
   tc_core = tcase_create("Core");
 
+  tcase_add_test(tc_core, test0);
   tcase_add_test(tc_core, test1);
   tcase_add_test(tc_core, test2);
   tcase_add_test(tc_core, test3);

@@ -77,14 +77,3 @@ void s21_normalize_decimal(s21_decimal *value);
 int s21_decimal_is_zero(const s21_decimal value);
 int s21_divide_by_10(const s21_decimal value, s21_decimal *quotient, int *remainder);
 int s21_multiplication_by_10(s21_decimal value, s21_decimal *result);
-
-
-
-
-
-
-// добавить проверку на NULL чтоб возвращалась ошибка во всех функциях
-
-
-
-

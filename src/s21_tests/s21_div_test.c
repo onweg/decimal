@@ -6,7 +6,7 @@ void s21_init_decimal(s21_decimal *decimal, uint32_t bit0, uint32_t bit1,
   decimal->bits[1] = bit1;
   decimal->bits[2] = bit2;
   decimal->bits[3] = bit3;
-};
+}
 
 START_TEST(test1) {
   s21_decimal d = {0, 0, 0, 0};
@@ -182,9 +182,7 @@ START_TEST(test17) {
   s21_decimal d = {10, 0, 0, 0x00000000};
   s21_decimal b = {3, 0, 0, 0x00000000};
   s21_decimal res = {0};
-  s21_decimal answer = {
-      0b00110101010101010101010101010101, 0b11001111001001100000011111101110,
-      0b01101011101101001010111111100100, 0b00000000000111000000000000000000};
+  s21_decimal answer = {0x35555555, 0xCF2607EE, 0x6BB4AFE4, 0x1C0000};
   int status = s21_div(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -196,9 +194,7 @@ START_TEST(test18) {
   s21_decimal d = {10, 0, 0, 0x00000000};
   s21_decimal b = {6, 0, 0, 0x00000000};
   s21_decimal res = {0};
-  s21_decimal answer = {
-      0b00011010101010101010101010101011, 0b01100111100100110000001111110111,
-      0b00110101110110100101011111110010, 0b00000000000111000000000000000000};
+  s21_decimal answer = {0x1AAAAAAB, 0x679303F7, 0x35DA57F2, 0x1C0000};
   int status = s21_div(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -210,10 +206,8 @@ START_TEST(test19) {
   s21_decimal b = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000000};
   s21_decimal res = {0};
 
-  s21_decimal answer = {0b01001000001011110111111111000011,
-                        0b10011100100101010101001000000000,
-                        0b00000011001110110010111000111100,
-                        0b00000000000110110000000000000000};  // проверить
+  s21_decimal answer = {0x482F7FC3, 0x9C955200, 0x33B2E3C,
+                        0x1B0000};  // проверить
   int status = s21_div(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -234,16 +228,10 @@ END_TEST
 START_TEST(test21) {
   // 792281625142643375935 / 782281625142643375931
   // = 1.0127831201431793474528374993
-  s21_decimal d = {0b00011000011100111011111100111111,
-                   0b11110011000111011100010001100001,
-                   0b00000000000000000000000000101010, 0x00000000};
-  s21_decimal b = {0b10001110100010111011111100111011,
-                   0b01101000010101101010000101011100,
-                   0b00000000000000000000000000101010, 0x00000000};
+  s21_decimal d = {0x1873BF3F, 0xF31DC461, 0x2A, 0x00000000};
+  s21_decimal b = {0x8E8BBF3B, 0x6856A15C, 0x2A, 0x00000000};
   s21_decimal res = {0};
-  s21_decimal answer = {
-      0b10011111011111000111000011010001, 0b10001110110101010011111010000000,
-      0b00100000101110011000101110101101, 0b00000000000111000000000000000000};
+  s21_decimal answer = {0x9F7C70D1, 0x8ED53E80, 0x20B98BAD, 0x1C0000};
   int status = s21_div(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -254,13 +242,9 @@ START_TEST(test22) {
   // 79228162514264337593543950335 / 782281625142643375931 =
   // 101278312.01431793474533993217
   s21_decimal d = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000000};
-  s21_decimal b = {0b10001110100010111011111100111011,
-                   0b01101000010101101010000101011100,
-                   0b00000000000000000000000000101010, 0x00000000};
+  s21_decimal b = {0x8E8BBF3B, 0x6856A15C, 0x2A, 0x00000000};
   s21_decimal res = {0};
-  s21_decimal answer = {
-      0b10011111110100100010101100000001, 0b10001110110101010011111010000000,
-      0b00100000101110011000101110101101, 0b00000000000101000000000000000000};
+  s21_decimal answer = {0x9FD22B01, 0x8ED53E80, 0x20B98BAD, 0x140000};
   int status = s21_div(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));
@@ -272,9 +256,7 @@ START_TEST(test23) {
   s21_decimal d = {5, 0, 0, 0};
   s21_decimal b = {9, 0, 0, 0x00010000};
   s21_decimal res = {0};
-  s21_decimal answer = {
-      0b00000011100011100011100011100100, 0b01011001001111110110001010001101,
-      0b10110011100000100111101001111101, 0b00000000000111000000000000000000};
+  s21_decimal answer = {0x38E38E4, 0x593F628D, 0xB3827A7D, 0x1C0000};
   int status = s21_div(d, b, &res);
   ck_assert_int_eq(0, status);
   ck_assert_int_eq(1, s21_is_equal(res, answer));

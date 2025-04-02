@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS = -Wall -Wextra -pedantic -std=c11 #-Werror
+CFLAGS = -Wall -Wextra -pedantic -std=c11 -Werror -Wno-gnu-zero-variadic-macro-arguments
 GCOV_FLAGS = -fprofile-arcs -ftest-coverage
 LDFLAGS = -fprofile-arcs --coverage -pthread -I./check -L./check -lcheck
 

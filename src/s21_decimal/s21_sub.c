@@ -47,10 +47,10 @@ int s21_sub(s21_decimal value_1, s21_decimal value_2, s21_decimal *result) {
   } else {
     if (((unsigned int)value_1.bits[2] > (unsigned int)value_2.bits[2]) ||
         (((unsigned int)value_1.bits[2] == (unsigned int)value_2.bits[2]) &&
-            ((unsigned int)value_1.bits[1] > (unsigned int)value_2.bits[1])) ||
+         ((unsigned int)value_1.bits[1] > (unsigned int)value_2.bits[1])) ||
         (((unsigned int)value_1.bits[2] == (unsigned int)value_2.bits[2]) &&
-            ((unsigned int)value_1.bits[1] == (unsigned int)value_2.bits[1]) &&
-            ((unsigned int)value_1.bits[0] > (unsigned int)value_2.bits[0]))) {
+         ((unsigned int)value_1.bits[1] == (unsigned int)value_2.bits[1]) &&
+         ((unsigned int)value_1.bits[0] > (unsigned int)value_2.bits[0]))) {
       s21_set_sign(&tmp_result, sign1);
       s21_calculating_sub_mantissa(value_1, value_2, &tmp_result);
     } else {
