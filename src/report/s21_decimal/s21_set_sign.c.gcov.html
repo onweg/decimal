@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-04-02 19:18:17</td>
+            <td class="headerValue">2025-04-02 19:27:46</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
@@ -62,13 +62,13 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../s21_decimal.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">        3160 : void s21_set_sign(s21_decimal *value, int sign){</span></span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">        3160 :     if (sign == 0) {</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">        3070 :                 value-&gt;bits[3] &amp;= ~(1 &lt;&lt; S21_DEC_SIGN_SHIFT);</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">        3160 :         } else if (sign == 1) {</span></span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          90 :                 value-&gt;bits[3] |= (1 &lt;&lt; S21_DEC_SIGN_SHIFT);</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          90 :         }</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">        3160 :         return;</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">        3188 : void s21_set_sign(s21_decimal *value, int sign){</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">        3188 :     if (sign == 0) {</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">        3092 :                 value-&gt;bits[3] &amp;= ~(1 &lt;&lt; S21_DEC_SIGN_SHIFT);</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">        3188 :         } else if (sign == 1) {</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          96 :                 value-&gt;bits[3] |= (1 &lt;&lt; S21_DEC_SIGN_SHIFT);</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          96 :         }</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">        3188 :         return;</span></span>
 <span id="L10"><span class="lineNum">      10</span>              : }</span>
 <span id="L11"><span class="lineNum">      11</span>              : </span>
         </pre>
