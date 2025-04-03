@@ -146,7 +146,7 @@ START_TEST(test16) {
   s21_decimal src = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0};
   float res;
   int status = s21_from_decimal_to_float(src, &res);
-  ck_assert_int_eq(status, 1);
+  ck_assert_int_eq(status, 0);
 }
 START_TEST(test17) {
   s21_decimal src = {1, 0, 0, 0x001D0000};
